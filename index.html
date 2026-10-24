@@ -4,417 +4,409 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>Japan 2026 — Travel OS</title>
+<title>Japan 2026 — Travel Bible</title>
 <style>
 :root{
-  --bg:#090b0e;--panel:#12161c;--panel2:#161c23;--line:#29313b;
-  --txt:#f5f7fa;--muted:#9aa6b2;--gold:#f0c46a;--ok:#65d6ad;
-  --radius:18px;--pad:14px
+  --bg:#0a0c10;--panel:#12161c;--panel2:#171d25;--text:#f7f8fa;--muted:#98a3af;
+  --line:#252d37;--gold:#f3c66a;--blue:#8fd4ff;--green:#70d6b0;--red:#ff9d9d;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden}
-body{
-  margin:0;min-width:0;max-width:100%;overflow-x:hidden;
-  background:#090b0e;color:var(--txt);
-  font:15px/1.45 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  padding-bottom:86px
-}
-img,svg,video,iframe{max-width:100%;height:auto}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
 a{color:inherit}
-.wrap{width:100%;max-width:100%;margin:0;padding:10px}
-.hero,.card,.stat,.todaybox,.cover,.dayplan,.step,.move,.note,.transfer{min-width:0;max-width:100%}
-h1,h2,h3,h4,p,.route,.move small,.muted{overflow-wrap:anywhere}
-.eyebrow{
-  font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)
-}
-.hero{
-  padding:18px;border:1px solid var(--line);border-radius:22px;
-  background:
-    radial-gradient(circle at 85% 10%,rgba(240,196,106,.16),transparent 28%),
-    linear-gradient(135deg,#171c23,#0c1015)
-}
-h1{
-  font-size:42px;line-height:.9;letter-spacing:-.045em;margin:9px 0 11px
-}
-.hero p{margin:0;color:#c8d0d8;font-size:15px;line-height:1.45}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
-.stat{
-  border:1px solid var(--line);background:rgba(18,22,28,.94);
-  border-radius:14px;padding:10px 11px
-}
-.stat b{display:block;font-size:16px;line-height:1.15}
-.stat span,.muted{display:block;color:var(--muted);font-size:10px;line-height:1.3;margin-top:3px}
+.app{width:100%;max-width:760px;margin:0 auto;padding:12px 12px 40px}
+.hero{padding:18px;border:1px solid var(--line);border-radius:22px;background:
+radial-gradient(circle at 85% 0%,rgba(243,198,106,.18),transparent 28%),
+linear-gradient(145deg,#171c23,#0c1015)}
+.kicker{font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;color:var(--gold)}
+h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 10px}
+.hero p{margin:0;color:#cbd3db}
+.hero-route{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:#d7dee6}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.stat{padding:11px;border:1px solid var(--line);border-radius:14px;background:#10151b}
+.stat b{display:block;font-size:15px;line-height:1.15}.stat span{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.daynav-wrap{position:sticky;top:0;z-index:20;margin:10px -12px 0;padding:8px 12px;background:rgba(10,12,16,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.05)}
+.daynav{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}.daynav::-webkit-scrollbar{display:none}
+.daynav a{flex:0 0 auto;text-decoration:none;border:1px solid var(--line);background:#11161c;border-radius:999px;padding:9px 11px;font-size:12px;white-space:nowrap}
+.daynav a.active{background:var(--gold);color:#111;border-color:var(--gold);font-weight:800}
+.section{margin-top:28px}
+.section-head{margin-bottom:10px}
+.section-head .kicker{margin-bottom:4px}.section-head h2{font-size:28px;line-height:1.05;margin:0 0 4px}.section-head p{margin:0;color:var(--muted);font-size:12px}
+.today{padding:15px;border:1px solid #365066;border-radius:18px;background:linear-gradient(145deg,#121b24,#10141a)}
+.today h2{margin:3px 0 7px;font-size:22px}.today p{margin:0;color:#d0d8df}
+.today-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.today-mini{padding:9px;border:1px solid rgba(255,255,255,.06);border-radius:12px;background:rgba(255,255,255,.03)}
+.today-mini b{display:block;font-size:11px}.today-mini span{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;margin-top:12px;padding:9px 12px;border-radius:11px;background:var(--gold);color:#111;text-decoration:none;font-weight:900}
+.cover{height:190px;border-radius:18px;border:1px solid var(--line);background-size:cover;background-position:center;position:relative;overflow:hidden;margin-bottom:9px}
+.cover:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.82))}
+.cover-label{position:absolute;z-index:2;left:15px;right:15px;bottom:13px}.cover-label h3{font-size:28px;margin:4px 0 0}.pill{display:inline-block;font-size:9px;padding:4px 7px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(20,26,33,.72)}
+.hotel{padding:13px 14px;border:1px solid var(--line);border-radius:16px;background:var(--panel);margin-bottom:10px}
+.hotel h3{margin:0 0 4px;font-size:18px}.hotel p{margin:0;color:var(--muted);font-size:12px}
+.hotel a{display:inline-block;margin-top:8px;color:var(--gold);font-size:12px;font-weight:800;text-decoration:none}
 
-.nav{
-  margin:8px -10px 0;padding:8px 10px;
-  border-bottom:1px solid rgba(255,255,255,.05);
-  background:#090b0e
-}
-.navin{
-  display:flex;gap:7px;overflow-x:auto;overscroll-behavior-inline:contain;
-  scrollbar-width:none;-webkit-overflow-scrolling:touch
-}
-.navin::-webkit-scrollbar{display:none}
-.nav a{
-  flex:0 0 auto;display:flex;align-items:center;justify-content:center;
-  min-height:40px;padding:8px 11px;border:1px solid var(--line);
-  border-radius:999px;text-decoration:none;color:#dce4ec;font-size:12px;white-space:nowrap
-}
-section{margin:28px 0;scroll-margin-top:12px}
-.section-head{display:block;margin-bottom:10px}
-.section-head h2{font-size:28px;line-height:1.05;margin:4px 0 3px}
-.section-head p{margin:0;color:var(--muted);font-size:12px;line-height:1.35}
+.day{border:1px solid var(--line);border-radius:18px;background:var(--panel);margin:10px 0;overflow:hidden}
+.day[open]{box-shadow:0 10px 30px rgba(0,0,0,.16)}
+.day summary{list-style:none;cursor:pointer;padding:14px 48px 14px 14px;position:relative;background:linear-gradient(145deg,#171d25,#11161c)}
+.day summary::-webkit-details-marker{display:none}
+.day summary:after{content:"⌄";position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:24px;color:var(--gold)}
+.day:not([open]) summary:after{content:"›"}
+.day-date{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:800}
+.day-title{font-size:18px;line-height:1.25;font-weight:800;margin-top:4px}
+.day-sub{font-size:11px;color:var(--muted);margin-top:3px}
+.steps{padding:4px 0}
+.step{padding:13px 14px;border-top:1px solid rgba(255,255,255,.06)}
+.step:first-child{border-top:0}
+.time{display:inline-block;font-size:12px;font-weight:900;color:var(--gold);margin-bottom:4px}
+.step h4{font-size:16px;line-height:1.25;margin:0 0 4px}
+.step p{margin:0;color:#cbd3db;font-size:13px}
+.transfer{margin-top:8px;padding:9px 10px;border:1px solid #304455;border-radius:12px;background:#111b24}
+.transfer b{display:block;font-size:13px;color:#fff}.transfer small{display:block;margin-top:3px;color:var(--muted);font-size:11px;line-height:1.35}
+.transfer .line{color:var(--blue)}
+.map{display:inline-flex;align-items:center;min-height:36px;margin-top:6px;color:var(--gold);font-size:12px;font-weight:800;text-decoration:none}
+.reset{background:linear-gradient(90deg,rgba(243,198,106,.08),transparent)}
+.night{background:linear-gradient(90deg,rgba(121,74,160,.11),transparent)}
+.note{padding:11px 12px;border-left:3px solid var(--gold);background:#161b22;border-radius:11px;font-size:12px;color:#d8dee5;margin:9px 0}
+.checks{display:grid;gap:8px}
+.check{display:flex;gap:9px;align-items:flex-start;padding:11px;border:1px solid var(--line);border-radius:13px;background:var(--panel)}
+.check input{margin-top:2px;transform:scale(1.15)}.check span{font-size:13px;line-height:1.35}
+.footer{margin-top:30px;padding:20px 0 24px;color:var(--muted);font-size:10px;text-align:center}
 
-.city,.grid,.two,.today{display:grid;grid-template-columns:1fr;gap:9px}
-.cover{
-  min-height:190px;border:1px solid var(--line);border-radius:18px;
-  background-size:cover;background-position:center;position:relative;overflow:hidden
-}
-.cover:after{
-  content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.82))
-}
-.cover .label{position:absolute;z-index:2;left:15px;right:15px;bottom:13px}
-.cover h3{font-size:28px;line-height:1;margin:5px 0 0}
-.pill{
-  display:inline-block;padding:4px 7px;border:1px solid #405063;
-  background:rgba(20,26,33,.78);border-radius:999px;font-size:9px;margin:1px
-}
-
-.card,.todaybox{
-  border:1px solid var(--line);background:rgba(18,22,28,.94);
-  border-radius:16px;padding:14px
-}
-.card h3,.todaybox h3{margin:0 0 6px;font-size:19px;line-height:1.2}
-.card p,.todaybox p{margin:0 0 8px}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;min-height:42px;
-  padding:9px 12px;background:var(--gold);color:#0a0d10;font-weight:900;
-  text-decoration:none;border-radius:11px
-}
-.btn.secondary{background:#202832;color:#edf2f7;border:1px solid #374452}
-
-.today{gap:10px}
-.todaybox{
-  background:linear-gradient(135deg,#121b24,#10141a);border-color:#354458
-}
-.mini{display:grid;grid-template-columns:1fr;gap:7px;margin-top:12px}
-.mini div{
-  background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06);
-  border-radius:12px;padding:9px
-}
-.mini b{display:block;font-size:12px}
-.mini span{font-size:11px}
-
-.transfer{
-  padding:12px;border:1px solid #334154;background:#111821;
-  border-radius:14px;margin:10px 0
-}
-.route{
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#d0d9e3;
-  font-size:12px;line-height:1.4;margin-top:5px;white-space:normal
-}
-
-.dayplan{
-  margin-top:12px;border:1px solid var(--line);background:#0f141a;
-  border-radius:16px;overflow:hidden
-}
-.daytitle{
-  padding:13px 14px;border-bottom:1px solid var(--line);
-  background:linear-gradient(135deg,#171d25,#11161c)
-}
-.daytitle h3{margin:4px 0;font-size:18px;line-height:1.24}
-.daytitle p{margin:0;color:var(--muted);font-size:12px;line-height:1.35}
-.step{
-  display:block;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.06)
-}
-.step:last-child{border-bottom:0}
-.step-time{
-  display:block;margin-bottom:4px;font-weight:900;color:var(--gold);
-  font-size:12px;letter-spacing:.01em
-}
-.step h4{margin:0 0 4px;font-size:16px;line-height:1.25}
-.step p{margin:0;color:#c8d1da;font-size:13px;line-height:1.4}
-.move{
-  margin-top:7px;padding:9px 10px;border-radius:11px;
-  background:#111b24;border:1px solid #2f4050;color:#d9e4ee
-}
-.move b{display:block;color:#fff;font-size:13px;line-height:1.25}
-.move small{display:block;color:var(--muted);font-size:11px;line-height:1.35;margin-top:3px}
-.move .line{color:#9ed7ff}
-.mapmini{
-  display:inline-flex;align-items:center;min-height:38px;margin-top:5px;
-  color:var(--gold);font-size:12px;text-decoration:none;font-weight:800
-}
-.note{
-  border-left:3px solid var(--gold);background:#161b22;
-  padding:12px 13px;border-radius:11px;font-size:13px;line-height:1.4
-}
-.nightstep{background:linear-gradient(90deg,rgba(113,70,150,.10),transparent)}
-.resetstep{background:linear-gradient(90deg,rgba(240,196,106,.08),transparent)}
-
-.check label{
-  display:flex;gap:8px;align-items:flex-start;padding:9px 0;
-  border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;line-height:1.35
-}
-.check label:last-child{border-bottom:0}
-.check input{margin-top:2px;transform:scale(1.15)}
-
-.quick{
-  position:fixed;left:9px;right:9px;bottom:calc(9px + env(safe-area-inset-bottom));
-  z-index:30;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:6px;
-  background:rgba(8,10,13,.96);border:1px solid var(--line);border-radius:16px;
-  backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px)
-}
-.quick a,.quick button{
-  min-width:0;min-height:44px;border:0;background:#161d25;color:#eef3f8;
-  padding:7px 4px;border-radius:11px;text-decoration:none;text-align:center;
-  font:700 11px/1.1 inherit
-}
-.quick .accent{background:var(--gold);color:#0a0d10}
-.footer{padding:30px 0 18px;color:var(--muted);font-size:11px}
-
-@media(min-width:768px){
-  body{padding-bottom:86px;background:linear-gradient(#07090b,#0f1318 35%,#0a0c0f)}
-  .wrap{max-width:1180px;margin:auto;padding:16px}
-  .hero{padding:30px;border-radius:28px}
-  h1{font-size:64px}
-  .hero p{font-size:17px}
-  .stats{grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
-  .stat{padding:15px}
-  .stat b{font-size:21px}
-  .stat span{font-size:11px}
-  .nav{position:sticky;top:0;z-index:20;margin:12px 0;padding:10px 0;background:rgba(9,11,14,.9);backdrop-filter:blur(16px)}
-  section{margin:40px 0;scroll-margin-top:66px}
-  .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:15px}
-  .section-head h2{font-size:31px}
-  .section-head p{font-size:13px}
-  .city{grid-template-columns:1.25fr .75fr;gap:15px}
-  .grid.two,.two{grid-template-columns:1fr 1fr}
-  .today{grid-template-columns:1.2fr .8fr;gap:14px}
-  .cover{min-height:290px;border-radius:24px}
-  .cover h3{font-size:34px}
-  .card,.todaybox{padding:16px;border-radius:18px}
-  .mini{grid-template-columns:repeat(3,1fr);gap:9px}
-  .dayplan{border-radius:20px;margin-top:16px}
-  .daytitle{padding:16px 17px}
-  .daytitle h3{font-size:22px}
-  .step{display:grid;grid-template-columns:82px minmax(0,1fr);gap:13px;padding:15px 16px}
-  .step-time{font-size:14px;margin:0}
-  .step p{font-size:14px}
-  .move{padding:10px 11px}
-  .move b{font-size:14px}
-  .move small{font-size:12px}
-  .quick{left:50%;right:auto;bottom:14px;transform:translateX(-50%);display:flex;width:auto;padding:8px;border-radius:18px}
-  .quick a,.quick button{min-width:72px;padding:10px 12px;font-size:12px}
-}
-
-@media(min-width:1100px){
-  h1{font-size:82px}
+@media(min-width:760px){
+  .app{max-width:1180px;padding:18px}
+  .hero{padding:28px}.hero h1,h1{font-size:72px}.hero p{font-size:18px}
+  .stats{grid-template-columns:repeat(4,1fr);gap:12px}
+  .today-grid{grid-template-columns:repeat(4,1fr)}
+  .city-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:12px}
+  .cover{height:300px;margin:0}.hotel{margin:0}
+  .day-title{font-size:21px}
+  .step{display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px}
+  .time{margin:0}
 }
 </style>
 </head>
-<body><div class="wrap">
-<header class="hero"><div class="eyebrow">Vincenzo + Barbara · Private Trip OS</div><h1>JAPAN<br>2026</h1><p>La Bibbia operativa del viaggio: dove dormire, cosa fare, come muoversi e cosa viene dopo.</p><div class="stats"><div class="stat"><b>4→16 NOV</b><span>12 giorni</span></div><div class="stat"><b>4 BASI</b><span>Osaka · Kyoto · Miyajima · Tokyo</span></div><div class="stat"><b>OSAKA FULL</b><span>Cup Noodles · Umeda · Umeda Sky</span></div><div class="stat"><b>22:05</b><span>HND → IST il 15</span></div></div></header>
-<nav class="nav"><div class="navin"><a href="#today">OGGI</a><a href="#osaka">Osaka</a><a href="#kyoto">Kyoto</a><a href="#miyajima">Miyajima</a><a href="#hiroshima">Hiroshima</a><a href="#tokyo">Tokyo</a><a href="#todo">Prenotazioni</a></div></nav>
-<section id="today"><div class="section-head"><div><div class="eyebrow">Live dashboard</div><h2>OGGI</h2></div><p id="todayDate">Modalità planning</p></div><div class="today"><div class="todaybox"><div class="eyebrow">Cosa faccio adesso</div><h3 id="todayTitle">Preparazione viaggio</h3><p id="todayText">Controlla biglietti, prenotazioni e documenti.</p><div class="mini"><div><b>Hotel</b><span id="todayHotel" class="muted">—</span></div><div><b>Next</b><span id="todayNext" class="muted">—</span></div><div><b>Mode</b><span id="todayMode" class="muted">Planning</span></div></div><p><a id="todayMap" class="btn" target="_blank" href="https://www.google.com/maps">Apri Maps</a></p></div><div class="card"><div class="eyebrow">Rotta</div><h3>KIX → Osaka → Kyoto → Miyajima/Hiroshima → Tokyo → HND</h3><p class="muted">Lineare, senza ritorni inutili.</p></div></div></section>
+<body>
+<div class="app">
 
-<section id="osaka">
-<div class="section-head"><div><div class="eyebrow">05–07 NOV</div><h2>Osaka</h2></div><p>Prima volta in città: viverla davvero, con tempi e spostamenti chiari.</p></div>
-<div class="city"><div class="cover" style="background-image:url('https://pic.k-cdn.media/2020/09/20200904-photographer-Robert-main.jpg')"><div class="label"><span class="pill">CITY</span><span class="pill">FOOD</span><span class="pill">NIGHT</span><h3>OSAKA</h3></div></div><div class="card"><h3>Premier Hotel -CABIN PRESIDENT- Osaka</h3><p>5–7 novembre · Minamimorimachi</p><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Premier+Hotel+CABIN+PRESIDENT+Osaka">Maps</a></div></div>
+<header class="hero">
+  <div class="kicker">Vincenzo + Barbara · Japan 2026</div>
+  <h1>JAPAN<br>2026</h1>
+  <p>La Bibbia operativa del viaggio: dove siamo, cosa facciamo, come ci muoviamo e cosa viene dopo.</p>
+  <div class="hero-route">BRI → IST → KIX → Osaka → Kyoto → Miyajima → Hiroshima → Tokyo → HND</div>
+  <div class="stats">
+    <div class="stat"><b>4–16 NOV</b><span>12 giorni</span></div>
+    <div class="stat"><b>4 BASI</b><span>Osaka · Kyoto · Miyajima · Tokyo</span></div>
+    <div class="stat"><b>22:05</b><span>HND → IST il 15</span></div>
+    <div class="stat"><b>MOBILE FIRST</b><span>Uso pratico durante il viaggio</span></div>
+  </div>
+</header>
 
-<div class="dayplan"><div class="daytitle"><div class="eyebrow">05 NOV · ARRIVO</div><h3>KIX → Osaka → Tenma</h3><p>Obiettivo: arrivare senza stress e iniziare Osaka con una cena vera, non con un'altra attività.</p></div>
-<div class="step"><div class="step-time">19:10</div><div><h4>Atterraggio KIX</h4><p>Immigrazione, bagagli, Visit Japan Web già pronto.</p></div></div>
-<div class="step"><div class="step-time">20:30–21:00</div><div><h4>KIX → Minamimorimachi</h4><div class="move"><b>🚆 Treno + metro · ~60–75 min</b><small><span class="line">Nankai</span> KIX → Tengachaya → <span class="line">Osaka Metro Sakaisuji Line</span> → Minamimorimachi. Rapi:t solo se parte entro ~10–15 min; altrimenti Airport Express.</small></div><a class="mapmini" target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Kansai+International+Airport&destination=Premier+Hotel+CABIN+PRESIDENT+Osaka">Apri transfer in Maps →</a></div></div>
-<div class="step"><div class="step-time">21:45</div><div><h4>Check-in + Tenma</h4><div class="move"><b>🚶 Hotel → Tenma · 10–15 min</b><small>Passeggiata semplice verso Tenjinbashisuji/Tenma.</small></div><p>Cena spontanea: izakaya, yakitori, ramen, okonomiyaki. Poi hotel.</p></div></div></div>
+<div class="daynav-wrap">
+  <nav class="daynav">
+    <a href="#today">OGGI</a><a href="#d05">05</a><a href="#d06">06</a><a href="#d07">07</a><a href="#d08">08</a><a href="#d09">09</a><a href="#d10">10</a><a href="#d11">11</a><a href="#d12">12</a><a href="#d13">13</a><a href="#d14">14</a><a href="#d15">15</a><a href="#todo">DA FARE</a>
+  </nav>
+</div>
 
-<div class="dayplan"><div class="daytitle"><div class="eyebrow">06 NOV · OSAKA CITY</div><h3>Storia → food → quartieri popolari → Dotonbori</h3><p>Giornata piena ma lineare, con Kuromon inserito come pranzo.</p></div>
-<div class="step"><div class="step-time">08:00–09:00</div><div><h4>Colazione e partenza</h4></div></div>
-<div class="step"><div class="step-time">09:15–09:45</div><div><h4>Hotel → Osaka-jō</h4><div class="move"><b>🚇 Metro/JR · ~25–30 min</b><small>Minamimorimachi → area Morinomiya/Osakajokoen. Percorso esatto da scegliere sul momento.</small></div></div>
-<div class="step"><div class="step-time">09:45–11:15</div><div><h4>Osaka Castle + parco</h4></div></div>
-<div class="step"><div class="step-time">11:15–11:35</div><div><h4>Osaka-jō → Nakanoshima</h4><div class="move"><b>🚇 Metro / taxi · ~15–20 min</b><small>Taxi se fa risparmiare energia; altrimenti metro verso Kitahama.</small></div></div>
-<div class="step"><div class="step-time">11:35–12:20</div><div><h4>Nakanoshima / Kitahama</h4><p>Central Public Hall, fiume, passeggiata elegante.</p></div></div>
-<div class="step"><div class="step-time">12:20–12:40</div><div><h4>Kitahama → Kuromon Ichiba</h4><div class="move"><b>🚇 Osaka Metro · ~20 min</b><small>Verso Nippombashi; da lì pochi minuti a piedi.</small></div></div>
-<div class="step"><div class="step-time">12:40–13:40</div><div><h4>Kuromon Market · pranzo</h4><p>Food stop mirato, non visita infinita.</p></div></div>
-<div class="step"><div class="step-time">13:40–14:00</div><div><h4>Kuromon → Shinsekai</h4><div class="move"><b>🚇 Metro / taxi · ~15–20 min</b><small>Target Dobutsuen-mae / Ebisucho.</small></div></div>
-<div class="step"><div class="step-time">14:00–15:15</div><div><h4>Shinsekai + Tsutenkaku area</h4><p>Salita alla torre solo se tempi/energia lo permettono.</p></div></div>
-<div class="step"><div class="step-time">15:15–15:30</div><div><h4>Shinsekai → Namba Yasaka</h4><div class="move"><b>🚕 Taxi · ~10–15 min</b><small>Qui il taxi vale il tempo risparmiato.</small></div></div>
-<div class="step"><div class="step-time">15:30–16:00</div><div><h4>Namba Yasaka Shrine</h4></div></div>
-<div class="step"><div class="step-time">16:00–16:20</div><div><h4>Namba Yasaka → Shinsaibashi</h4><div class="move"><b>🚶 + metro · ~15–20 min</b></div></div>
-<div class="step"><div class="step-time">16:20–18:00</div><div><h4>Shinsaibashi + Amerikamura</h4></div></div>
-<div class="step"><div class="step-time">18:00–18:20</div><div><h4>Shinsaibashi → Hozenji</h4><div class="move"><b>🚶 A piedi · ~15–20 min</b><small>È parte della visita, non un trasferimento perso.</small></div></div>
-<div class="step nightstep"><div class="step-time">18:20–22:30</div><div><h4>Hozenji → cena → Dotonbori</h4><p>Cena Namba/Ura-Namba e passeggiata notturna lungo il canale.</p><div class="move"><b>🚶 Tutto a piedi</b></div></div></div></div>
-
-<div class="dayplan"><div class="daytitle"><div class="eyebrow">07 NOV · OSAKA NORD → KYOTO</div><h3>Cup Noodles + Umeda + Umeda Sky</h3><p>Questo è ora il programma ufficiale. USJ eliminato.</p></div>
-<div class="step"><div class="step-time">07:30–08:15</div><div><h4>Colazione</h4></div></div>
-<div class="step"><div class="step-time">08:15–08:45</div><div><h4>Checkout + bagagli</h4><p>Lasciare i bagagli in hotel oppure portarli verso Umeda/lockers per evitare ritorni inutili.</p></div></div>
-<div class="step"><div class="step-time">08:45–09:15</div><div><h4>Minamimorimachi → Osaka-Umeda</h4><div class="move"><b>🚇 Metro · ~10–15 min</b><small>Tanimachi/Higashi-Umeda oppure percorso equivalente. Se bagagli: scegliere la soluzione più semplice.</small></div></div>
-<div class="step"><div class="step-time">09:15–10:00</div><div><h4>Osaka-Umeda → Ikeda</h4><div class="move"><b>🚆 Hankyu Takarazuka Line · ~20 min + cammino</b><small>Umeda → Ikeda; poi ~5–10 min a piedi al museo.</small></div><a class="mapmini" target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Osaka-Umeda+Station&destination=CUPNOODLES+Museum+Osaka+Ikeda">Apri percorso →</a></div></div>
-<div class="step"><div class="step-time">10:00–11:30</div><div><h4>CUPNOODLES Museum Osaka Ikeda</h4><p>Museo + My CUPNOODLES Factory.</p></div></div>
-<div class="step"><div class="step-time">11:30–12:15</div><div><h4>Ikeda → Umeda</h4><div class="move"><b>🚆 Hankyu Takarazuka Line · ~20–25 min</b><small>Rientro diretto Osaka-Umeda.</small></div></div>
-<div class="step"><div class="step-time">12:15–13:30</div><div><h4>Pranzo Umeda</h4></div></div>
-<div class="step"><div class="step-time">13:30–14:30</div><div><h4>Osaka Station / Grand Green Osaka</h4><div class="move"><b>🚶 A piedi</b><small>Tutto concentrato nell'area Kita/Umeda.</small></div></div>
-<div class="step"><div class="step-time">14:30–14:45</div><div><h4>Grand Green → Umeda Sky Building</h4><div class="move"><b>🚶 A piedi · ~10–15 min</b></div></div>
-<div class="step"><div class="step-time">14:45–16:00</div><div><h4>Umeda Sky Building</h4></div></div>
-<div class="step"><div class="step-time">16:00–16:30</div><div><h4>Recupero bagagli</h4></div></div>
-<div class="step"><div class="step-time">16:30–17:15</div><div><h4>Osaka → Kyoto</h4><div class="move"><b>🚆 JR / Hankyu · ~30–45 min</b><small>Scelta in base a dove sono i bagagli e all'accesso più comodo al Royal Park Canvas Nijo.</small></div></div>
-<div class="step"><div class="step-time">17:30–18:00</div><div><h4>Check-in Kyoto</h4></div></div>
-<div class="step nightstep"><div class="step-time">19:00</div><div><h4>Cena tranquilla + riposo</h4><p>Niente Gion e niente bagno pubblico.</p></div></div></div>
+<section id="today" class="section">
+  <div class="today">
+    <div class="kicker">OGGI</div>
+    <h2 id="todayTitle">Modalità planning</h2>
+    <p id="todayText">Controlla prenotazioni, biglietti e prossime cose da chiudere.</p>
+    <div class="today-grid">
+      <div class="today-mini"><b>Hotel</b><span id="todayHotel">—</span></div>
+      <div class="today-mini"><b>Prossimo</b><span id="todayNext">—</span></div>
+      <div class="today-mini"><b>Modalità</b><span id="todayMode">Planning</span></div>
+      <div class="today-mini"><b>Data</b><span id="todayDate">—</span></div>
+    </div>
+    <a id="todayMap" class="btn" target="_blank" href="https://www.google.com/maps">Apri Maps</a>
+  </div>
 </section>
 
-<section id="kyoto">
-<div class="section-head"><div><div class="eyebrow">07–10 NOV</div><h2>Kyoto</h2></div><p>Due giornate piene, ritmo umano, taxi quando fa guadagnare energia.</p></div>
-<div class="city"><div class="cover" style="background-image:url('https://cdn-ak.f.st-hatena.com/images/fotolife/b/bankto_htn/20201026/20201026194035.jpg')"><div class="label"><span class="pill">TEMPLE</span><span class="pill">WALK</span><h3>KYOTO</h3></div></div><div class="card"><h3>The Royal Park Canvas - Kyoto Nijo</h3><p>7–10 novembre · Standard Twin 22 m²</p><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=The+Royal+Park+Canvas+Kyoto+Nijo">Maps</a><p class="muted">Bagni pubblici esclusi dal programma.</p></div></div>
+<section class="section" id="osaka">
+  <div class="section-head"><div class="kicker">05–07 NOV</div><h2>Osaka</h2><p>Prima visita: città, food, quartieri e skyline.</p></div>
+  <div class="city-grid">
+    <div class="cover" style="background-image:url('https://pic.k-cdn.media/2020/09/20200904-photographer-Robert-main.jpg')"><div class="cover-label"><span class="pill">CITY</span> <span class="pill">FOOD</span> <span class="pill">NIGHT</span><h3>OSAKA</h3></div></div>
+    <div class="hotel"><h3>Premier Hotel -CABIN PRESIDENT- Osaka</h3><p>5–7 novembre · Minamimorimachi</p><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Premier+Hotel+CABIN+PRESIDENT+Osaka">Apri hotel in Maps →</a></div>
+  </div>
 
-<div class="dayplan"><div class="daytitle"><div class="eyebrow">08 NOV · KYOTO EST</div><h3>Fushimi Inari → Kiyomizu → Higashiyama → Gion</h3></div>
-<div class="step"><div class="step-time">08:00–08:45</div><div><h4>Colazione</h4></div></div>
-<div class="step"><div class="step-time">08:45–09:30</div><div><h4>Nijo → Fushimi Inari</h4><div class="move"><b>🚆 JR / metro + JR · ~35–45 min</b><small>Da Nijo verso Kyoto Station e poi JR Nara Line fino a Inari.</small></div></div>
-<div class="step"><div class="step-time">09:30–11:00</div><div><h4>Fushimi Inari</h4><p>Main shrine + Senbon Torii; niente summit completo.</p></div></div>
-<div class="step"><div class="step-time">11:00–11:30</div><div><h4>Fushimi Inari → Higashiyama</h4><div class="move"><b>🚕 Taxi · ~20–30 min</b><small>Scelta deliberata per evitare cambi e guadagnare energia.</small></div></div>
-<div class="step"><div class="step-time">11:30–12:45</div><div><h4>Pranzo</h4></div></div>
-<div class="step"><div class="step-time">13:00–14:15</div><div><h4>Kiyomizu-dera</h4></div></div>
-<div class="step"><div class="step-time">14:15–16:00</div><div><h4>Kiyomizu-zaka → Sannenzaka → Ninenzaka → Yasaka Pagoda</h4><div class="move"><b>🚶 A piedi · visita continua</b></div></div>
-<div class="step"><div class="step-time">16:00–16:30</div><div><h4>Buffer</h4><p>Kodai-ji oppure Maruyama Park oppure caffè.</p></div></div>
-<div class="step"><div class="step-time">16:30–18:30</div><div><h4>Yasaka → Gion → Shirakawa</h4><div class="move"><b>🚶 A piedi</b><small>Hanamikoji e quartieri storici.</small></div></div>
-<div class="step nightstep"><div class="step-time">18:30–21:00</div><div><h4>Kamo River / Pontocho + cena</h4></div></div>
-<div class="step"><div class="step-time">21:00–21:30</div><div><h4>Gion/Pontocho → hotel</h4><div class="move"><b>🚕 Taxi · ~15–20 min</b><small>Fine giornata: meglio taxi che altri cambi.</small></div></div></div></div>
+  <details class="day" id="d05" data-date="2026-11-05">
+    <summary><div class="day-date">05 NOV · ARRIVO</div><div class="day-title">KIX → hotel → Tenma</div><div class="day-sub">Arrivare bene, mangiare bene, niente turismo forzato.</div></summary>
+    <div class="steps">
+      <div class="step"><div class="time">19:10</div><div><h4>Atterraggio KIX</h4><p>Immigrazione, bagagli, Visit Japan Web già pronto.</p></div></div>
+      <div class="step"><div class="time">20:30–21:00</div><div><h4>KIX → Minamimorimachi</h4><div class="transfer"><b>🚆 Treno + metro · ~60–75 min</b><small><span class="line">Nankai</span> KIX → Tengachaya → <span class="line">Sakaisuji Line</span> → Minamimorimachi. Rapi:t solo se parte entro ~10–15 min, altrimenti Airport Express.</small></div><a class="map" target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Kansai+International+Airport&destination=Premier+Hotel+CABIN+PRESIDENT+Osaka">Apri transfer in Maps →</a></div></div>
+      <div class="step night"><div class="time">21:45</div><div><h4>Check-in + Tenma</h4><p>Cena spontanea: izakaya, yakitori, ramen o okonomiyaki.</p><div class="transfer"><b>🚶 Hotel → Tenma · 10–15 min</b></div></div></div>
+    </div>
+  </details>
 
-<div class="dayplan"><div class="daytitle"><div class="eyebrow">09 NOV · KYOTO OVEST</div><h3>Arashiyama → Kinkaku-ji → Nishiki</h3></div>
-<div class="step"><div class="step-time">08:00–08:45</div><div><h4>Colazione</h4></div></div>
-<div class="step"><div class="step-time">08:45–09:10</div><div><h4>Nijo → Saga-Arashiyama</h4><div class="move"><b>🚆 JR San-in/Sagano Line · ~15–20 min</b><small>Da Nijo Station a Saga-Arashiyama.</small></div></div>
-<div class="step"><div class="step-time">09:10–09:45</div><div><h4>Bamboo Grove</h4></div></div>
-<div class="step"><div class="step-time">09:45–10:45</div><div><h4>Tenryu-ji</h4></div></div>
-<div class="step"><div class="step-time">10:45–11:45</div><div><h4>Okochi Sanso optional / Togetsukyo / fiume</h4><div class="move"><b>🚶 A piedi</b></div></div>
-<div class="step"><div class="step-time">11:45–13:15</div><div><h4>Pranzo Arashiyama</h4></div></div>
-<div class="step"><div class="step-time">13:15–13:45</div><div><h4>Arashiyama → Kinkaku-ji</h4><div class="move"><b>🚕 Taxi · ~25–35 min</b><small>Più efficiente dei mezzi pubblici con questa sequenza.</small></div></div>
-<div class="step"><div class="step-time">13:45–14:45</div><div><h4>Kinkaku-ji</h4></div></div>
-<div class="step"><div class="step-time">14:45–15:15</div><div><h4>Kinkaku-ji → Nishiki</h4><div class="move"><b>🚕 Taxi · ~20–30 min</b></div></div>
-<div class="step"><div class="step-time">15:15–17:00</div><div><h4>Nishiki Market + Teramachi</h4><p>Food, utensili, retail. Se alcune botteghe stanno chiudendo, dare priorità a Nishiki.</p></div></div>
-<div class="step"><div class="step-time">17:00–18:30</div><div><h4>Tempo libero / shopping / caffè</h4></div></div>
-<div class="step nightstep"><div class="step-time">19:00–21:00</div><div><h4>Cena</h4></div></div>
-<div class="step resetstep"><div class="step-time">21:30</div><div><h4>Hotel + operazione bagagli</h4><p>Chiudere valigie grandi per Tokyo. Trolley piccoli per Miyajima/Hiroshima.</p></div></div></div>
+  <details class="day" id="d06" data-date="2026-11-06">
+    <summary><div class="day-date">06 NOV · OSAKA CITY</div><div class="day-title">Castello → Kuromon → Shinsekai → Namba → Dotonbori</div><div class="day-sub">Giornata completa e lineare.</div></summary>
+    <div class="steps">
+      <div class="step"><div class="time">08:00–09:00</div><div><h4>Colazione e partenza</h4></div></div>
+      <div class="step"><div class="time">09:15–09:45</div><div><h4>Hotel → Osaka-jō</h4><div class="transfer"><b>🚇 Metro/JR · ~25–30 min</b><small>Minamimorimachi → area Morinomiya/Osakajokoen.</small></div></div></div>
+      <div class="step"><div class="time">09:45–11:15</div><div><h4>Osaka Castle + parco</h4></div></div>
+      <div class="step"><div class="time">11:15–11:35</div><div><h4>Osaka-jō → Nakanoshima</h4><div class="transfer"><b>🚇 Metro / taxi · ~15–20 min</b><small>Taxi se fa guadagnare energia, altrimenti metro verso Kitahama.</small></div></div></div>
+      <div class="step"><div class="time">11:35–12:20</div><div><h4>Nakanoshima / Kitahama</h4><p>Central Public Hall, fiume, passeggiata elegante.</p></div></div>
+      <div class="step"><div class="time">12:20–12:40</div><div><h4>Kitahama → Kuromon Ichiba</h4><div class="transfer"><b>🚇 Metro · ~20 min</b></div></div></div>
+      <div class="step"><div class="time">12:40–13:40</div><div><h4>Kuromon Market · pranzo</h4></div></div>
+      <div class="step"><div class="time">13:40–14:00</div><div><h4>Kuromon → Shinsekai</h4><div class="transfer"><b>🚇 Metro / taxi · ~15–20 min</b></div></div></div>
+      <div class="step"><div class="time">14:00–15:15</div><div><h4>Shinsekai + Tsutenkaku area</h4><p>Salita alla torre solo se tempi ed energia lo permettono.</p></div></div>
+      <div class="step"><div class="time">15:15–15:30</div><div><h4>Shinsekai → Namba Yasaka</h4><div class="transfer"><b>🚕 Taxi · ~10–15 min</b></div></div></div>
+      <div class="step"><div class="time">15:30–16:00</div><div><h4>Namba Yasaka Shrine</h4></div></div>
+      <div class="step"><div class="time">16:00–16:20</div><div><h4>Namba Yasaka → Shinsaibashi</h4><div class="transfer"><b>🚶 + metro · ~15–20 min</b></div></div></div>
+      <div class="step"><div class="time">16:20–18:00</div><div><h4>Shinsaibashi + Amerikamura</h4></div></div>
+      <div class="step"><div class="time">18:00–18:20</div><div><h4>Shinsaibashi → Hozenji</h4><div class="transfer"><b>🚶 A piedi · ~15–20 min</b></div></div></div>
+      <div class="step night"><div class="time">18:20–22:30</div><div><h4>Hozenji → cena → Dotonbori</h4><p>Cena Namba/Ura-Namba e passeggiata notturna sul canale.</p></div></div>
+    </div>
+  </details>
+
+  <details class="day" id="d07" data-date="2026-11-07">
+    <summary><div class="day-date">07 NOV · OSAKA NORD → KYOTO</div><div class="day-title">Cup Noodles → Umeda → Umeda Sky → Kyoto</div><div class="day-sub">Programma ufficiale. USJ eliminato.</div></summary>
+    <div class="steps">
+      <div class="step"><div class="time">07:30–08:15</div><div><h4>Colazione</h4></div></div>
+      <div class="step"><div class="time">08:15–08:45</div><div><h4>Checkout + bagagli</h4><p>Meglio lasciare i bagagli in hotel o usare lockers in zona Umeda per evitare ritorni inutili.</p></div></div>
+      <div class="step"><div class="time">08:45–09:15</div><div><h4>Minamimorimachi → Osaka-Umeda</h4><div class="transfer"><b>🚇 Metro · ~10–15 min</b></div></div></div>
+      <div class="step"><div class="time">09:15–10:00</div><div><h4>Osaka-Umeda → Ikeda</h4><div class="transfer"><b>🚆 Hankyu Takarazuka Line · ~20 min + cammino</b></div></div></div>
+      <div class="step"><div class="time">10:00–11:30</div><div><h4>CUPNOODLES Museum Osaka Ikeda</h4><p>Museo + My CUPNOODLES Factory.</p></div></div>
+      <div class="step"><div class="time">11:30–12:15</div><div><h4>Ikeda → Umeda</h4><div class="transfer"><b>🚆 Hankyu · ~20–25 min</b></div></div></div>
+      <div class="step"><div class="time">12:15–13:30</div><div><h4>Pranzo Umeda</h4></div></div>
+      <div class="step"><div class="time">13:30–14:30</div><div><h4>Osaka Station / Grand Green Osaka</h4></div></div>
+      <div class="step"><div class="time">14:30–14:45</div><div><h4>Grand Green → Umeda Sky Building</h4><div class="transfer"><b>🚶 A piedi · ~10–15 min</b></div></div></div>
+      <div class="step"><div class="time">14:45–16:00</div><div><h4>Umeda Sky Building</h4></div></div>
+      <div class="step"><div class="time">16:00–16:30</div><div><h4>Recupero bagagli</h4></div></div>
+      <div class="step"><div class="time">16:30–17:15</div><div><h4>Osaka → Kyoto</h4><div class="transfer"><b>🚆 JR / Hankyu · ~30–45 min</b><small>Scelta in base a dove sono i bagagli e all'accesso più semplice al Royal Park Canvas Nijo.</small></div></div></div>
+      <div class="step"><div class="time">17:30–18:00</div><div><h4>Check-in Kyoto</h4></div></div>
+      <div class="step night"><div class="time">19:00</div><div><h4>Cena tranquilla + riposo</h4></div></div>
+    </div>
+  </details>
 </section>
 
-<section id="miyajima">
-<div class="section-head"><div><div class="eyebrow">10 NOV</div><h2>Miyajima</h2></div><p>La notte speciale del viaggio: arrivare presto e viverla.</p></div>
-<div class="city"><div class="cover" style="background-image:url('https://prd-static.gltjp.com/glt/data/article/21000/20480/20231016_140610_99d443db_w1920.jpg')"><div class="label"><span class="pill">RYOKAN</span><span class="pill">TORII</span><h3>MIYAJIMA</h3></div></div><div class="card"><h3>Kinsuikan</h3><p>10–11 novembre · JPY 208,921.88 · cena + colazione</p><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Kinsuikan+Miyajima">Maps</a></div></div>
-<div class="dayplan"><div class="daytitle"><div class="eyebrow">10 NOV · TRANSFER + RYOKAN</div><h3>Kyoto → Hiroshima → Miyajima</h3></div>
-<div class="step"><div class="step-time">07:30–08:15</div><div><h4>Colazione</h4></div></div>
-<div class="step"><div class="step-time">08:15–08:45</div><div><h4>Takkyubin + checkout</h4><p>Valigie grandi → hotel Tokyo. Solo trolley piccoli con noi.</p></div></div>
-<div class="step"><div class="step-time">08:45–09:10</div><div><h4>Nijo → Kyoto Station</h4><div class="move"><b>🚆 JR Sagano Line · ~10 min + cammino</b></div></div>
-<div class="step"><div class="step-time">~09:30</div><div><h4>Kyoto → Hiroshima</h4><div class="move"><b>🚄 NOZOMI · ~1h40</b><small>Treno esatto da emettere; target arrivo Hiroshima in tarda mattinata.</small></div></div>
-<div class="step"><div class="step-time">~11:20</div><div><h4>Hiroshima → Miyajimaguchi</h4><div class="move"><b>🚆 JR Sanyo Line · ~28 min</b></div></div>
-<div class="step"><div class="step-time">~12:00</div><div><h4>Miyajimaguchi → Miyajima</h4><div class="move"><b>⛴️ JR Ferry · ~10 min</b><small>Scegliere JR Ferry; rotta panoramica quando operativa.</small></div></div>
-<div class="step"><div class="step-time">12:30–13:30</div><div><h4>Arrivo isola + Kinsuikan</h4><div class="move"><b>🚶 / pickup ryokan · pochi minuti</b><small>Lasciare trolley al ryokan; pickup telefonando dal ferry se necessario.</small></div></div>
-<div class="step"><div class="step-time">13:30–14:45</div><div><h4>Omotesando + primo giro Torii</h4></div></div>
-<div class="step"><div class="step-time">15:00</div><div><h4>Check-in Kinsuikan</h4></div></div>
-<div class="step"><div class="step-time">15:30–16:15</div><div><h4>Itsukushima Shrine + Torii</h4><p>Marea in discesa verso la bassa.</p></div></div>
-<div class="step"><div class="step-time">16:15–17:00</div><div><h4>Daisho-in oppure Momijidani</h4><div class="move"><b>🚶 A piedi</b><small>Scegliere in base a luce ed energia.</small></div></div>
-<div class="step"><div class="step-time">17:00–18:15</div><div><h4>Rientro Kinsuikan + relax</h4></div></div>
-<div class="step nightstep"><div class="step-time">18:30</div><div><h4>Kaiseki</h4><p>Orario target da confermare.</p></div></div>
-<div class="step nightstep"><div class="step-time">20:30–21:30</div><div><h4>Passeggiata Torii notturno</h4><div class="move"><b>🚶 A piedi dal ryokan</b></div></div></div></div>
+<section class="section" id="kyoto">
+  <div class="section-head"><div class="kicker">07–10 NOV</div><h2>Kyoto</h2><p>Due giornate piene, taxi quando fa davvero risparmiare energia.</p></div>
+  <div class="city-grid">
+    <div class="cover" style="background-image:url('https://cdn-ak.f.st-hatena.com/images/fotolife/b/bankto_htn/20201026/20201026194035.jpg')"><div class="cover-label"><span class="pill">TEMPLE</span> <span class="pill">WALK</span><h3>KYOTO</h3></div></div>
+    <div class="hotel"><h3>The Royal Park Canvas - Kyoto Nijo</h3><p>7–10 novembre · Standard Twin 22 m²</p><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=The+Royal+Park+Canvas+Kyoto+Nijo">Apri hotel in Maps →</a></div>
+  </div>
+
+  <details class="day" id="d08" data-date="2026-11-08">
+    <summary><div class="day-date">08 NOV · KYOTO EST</div><div class="day-title">Fushimi Inari → Kiyomizu → Higashiyama → Gion → Pontocho</div></summary>
+    <div class="steps">
+      <div class="step"><div class="time">08:00–08:45</div><div><h4>Colazione</h4></div></div>
+      <div class="step"><div class="time">08:45–09:30</div><div><h4>Nijo → Fushimi Inari</h4><div class="transfer"><b>🚆 JR / metro + JR · ~35–45 min</b><small>Verso Kyoto Station e poi JR Nara Line fino a Inari.</small></div></div></div>
+      <div class="step"><div class="time">09:30–11:00</div><div><h4>Fushimi Inari</h4><p>Main shrine + Senbon Torii, niente summit completo.</p></div></div>
+      <div class="step"><div class="time">11:00–11:30</div><div><h4>Fushimi Inari → Higashiyama</h4><div class="transfer"><b>🚕 Taxi · ~20–30 min</b></div></div></div>
+      <div class="step"><div class="time">11:30–12:45</div><div><h4>Pranzo</h4></div></div>
+      <div class="step"><div class="time">13:00–14:15</div><div><h4>Kiyomizu-dera</h4></div></div>
+      <div class="step"><div class="time">14:15–16:00</div><div><h4>Kiyomizu-zaka → Sannenzaka → Ninenzaka → Yasaka Pagoda</h4></div></div>
+      <div class="step"><div class="time">16:00–16:30</div><div><h4>Buffer</h4><p>Kodai-ji oppure Maruyama Park oppure caffè.</p></div></div>
+      <div class="step"><div class="time">16:30–18:30</div><div><h4>Yasaka → Gion → Shirakawa</h4><p>Hanamikoji e quartieri storici.</p></div></div>
+      <div class="step night"><div class="time">18:30–21:00</div><div><h4>Kamo River / Pontocho + cena</h4></div></div>
+      <div class="step"><div class="time">21:00–21:30</div><div><h4>Gion/Pontocho → hotel</h4><div class="transfer"><b>🚕 Taxi · ~15–20 min</b></div></div></div>
+    </div>
+  </details>
+
+  <details class="day" id="d09" data-date="2026-11-09">
+    <summary><div class="day-date">09 NOV · KYOTO OVEST</div><div class="day-title">Arashiyama → Kinkaku-ji → Nishiki</div></summary>
+    <div class="steps">
+      <div class="step"><div class="time">08:00–08:45</div><div><h4>Colazione</h4></div></div>
+      <div class="step"><div class="time">08:45–09:10</div><div><h4>Nijo → Saga-Arashiyama</h4><div class="transfer"><b>🚆 JR Sagano Line · ~15–20 min</b></div></div></div>
+      <div class="step"><div class="time">09:10–09:45</div><div><h4>Bamboo Grove</h4></div></div>
+      <div class="step"><div class="time">09:45–10:45</div><div><h4>Tenryu-ji</h4></div></div>
+      <div class="step"><div class="time">10:45–11:45</div><div><h4>Okochi Sanso optional / Togetsukyo / fiume</h4></div></div>
+      <div class="step"><div class="time">11:45–13:15</div><div><h4>Pranzo Arashiyama</h4></div></div>
+      <div class="step"><div class="time">13:15–13:45</div><div><h4>Arashiyama → Kinkaku-ji</h4><div class="transfer"><b>🚕 Taxi · ~25–35 min</b></div></div></div>
+      <div class="step"><div class="time">13:45–14:45</div><div><h4>Kinkaku-ji</h4></div></div>
+      <div class="step"><div class="time">14:45–15:15</div><div><h4>Kinkaku-ji → Nishiki</h4><div class="transfer"><b>🚕 Taxi · ~20–30 min</b></div></div></div>
+      <div class="step"><div class="time">15:15–17:00</div><div><h4>Nishiki Market + Teramachi</h4></div></div>
+      <div class="step"><div class="time">17:00–18:30</div><div><h4>Tempo libero / shopping / caffè</h4></div></div>
+      <div class="step night"><div class="time">19:00–21:00</div><div><h4>Cena</h4></div></div>
+      <div class="step reset"><div class="time">21:30</div><div><h4>Hotel + operazione bagagli</h4><p>Chiudere valigie grandi per Tokyo; Miyajima/Hiroshima solo con trolley piccoli.</p></div></div>
+    </div>
+  </details>
 </section>
 
-<section id="hiroshima">
-<div class="section-head"><div><div class="eyebrow">11 NOV</div><h2>Hiroshima → Tokyo</h2></div><p>Peace Park + Museum, poi diretto a Tokyo.</p></div>
-<div class="cover" style="min-height:250px;background-image:linear-gradient(135deg,rgba(24,37,48,.2),rgba(0,0,0,.7)),url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Genbaku_Dome04-r.JPG/1280px-Genbaku_Dome04-r.JPG')"><div class="label"><span class="pill">MEMORY</span><span class="pill">PEACE</span><h3>HIROSHIMA</h3></div></div>
-<div class="dayplan"><div class="daytitle"><div class="eyebrow">11 NOV · MIYAJIMA → HIROSHIMA → TOKYO</div><h3>Mattina sull'isola, Hiroshima essenziale, poi Shinkansen</h3></div>
-<div class="step"><div class="step-time">07:00–07:45</div><div><h4>Sveglia + breve passeggiata</h4></div></div>
-<div class="step"><div class="step-time">08:00</div><div><h4>Colazione Kinsuikan</h4></div></div>
-<div class="step"><div class="step-time">09:00–09:45</div><div><h4>Camera / checkout</h4></div></div>
-<div class="step"><div class="step-time">09:45–10:15</div><div><h4>Kinsuikan → ferry → Miyajimaguchi</h4><div class="move"><b>🚶 + ⛴️ · ~20–30 min</b></div></div>
-<div class="step"><div class="step-time">10:20–10:50</div><div><h4>Miyajimaguchi → Hiroshima Station</h4><div class="move"><b>🚆 JR Sanyo Line · ~28 min</b></div></div>
-<div class="step"><div class="step-time">11:00</div><div><h4>Deposito trolley Hiroshima Station</h4></div></div>
-<div class="step"><div class="step-time">11:05–11:20</div><div><h4>Station → Peace Memorial Park</h4><div class="move"><b>🚕 Taxi · ~15 min</b><small>Più semplice del tram con tempi stretti.</small></div></div>
-<div class="step"><div class="step-time">11:20–12:10</div><div><h4>Atomic Bomb Dome + Peace Park</h4></div></div>
-<div class="step"><div class="step-time">12:15–14:15</div><div><h4>Peace Memorial Museum</h4><p>Biglietto online da prenotare.</p></div></div>
-<div class="step"><div class="step-time">14:15–15:05</div><div><h4>Pranzo Hiroshima</h4><p>Okonomiyaki se logisticamente comodo.</p></div></div>
-<div class="step"><div class="step-time">15:05–15:25</div><div><h4>Peace Park → Hiroshima Station</h4><div class="move"><b>🚕 Taxi · ~15–20 min</b></div></div>
-<div class="step"><div class="step-time">15:25–15:45</div><div><h4>Recupero trolley + binario</h4></div></div>
-<div class="step"><div class="step-time">16:03</div><div><h4>Hiroshima → Tokyo</h4><div class="move"><b>🚄 NOZOMI diretto · ~3h54</b><small>Target già individuato; da verificare/emettere. Green Car da valutare.</small></div></div>
-<div class="step"><div class="step-time">19:57–20:40</div><div><h4>Tokyo Station → hotel</h4><div class="move"><b>🚕 Taxi · ~20–30 min</b><small>Con trolley, dopo quasi 4 ore di treno, taxi consigliato.</small></div></div>
-<div class="step nightstep"><div class="step-time">21:00</div><div><h4>Check-in + cena semplice</h4></div></div></div>
+<section class="section" id="miyajima">
+  <div class="section-head"><div class="kicker">10 NOV</div><h2>Miyajima</h2><p>La notte speciale del viaggio.</p></div>
+  <div class="city-grid">
+    <div class="cover" style="background-image:url('https://prd-static.gltjp.com/glt/data/article/21000/20480/20231016_140610_99d443db_w1920.jpg')"><div class="cover-label"><span class="pill">RYOKAN</span> <span class="pill">TORII</span><h3>MIYAJIMA</h3></div></div>
+    <div class="hotel"><h3>Kinsuikan</h3><p>10–11 novembre · JPY 208,921.88 · cena + colazione</p><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Kinsuikan+Miyajima">Apri ryokan in Maps →</a></div>
+  </div>
+
+  <details class="day" id="d10" data-date="2026-11-10">
+    <summary><div class="day-date">10 NOV · TRANSFER + RYOKAN</div><div class="day-title">Kyoto → Hiroshima → Miyajima</div></summary>
+    <div class="steps">
+      <div class="step"><div class="time">07:30–08:15</div><div><h4>Colazione</h4></div></div>
+      <div class="step"><div class="time">08:15–08:45</div><div><h4>Takkyubin + checkout</h4><p>Valigie grandi → hotel Tokyo. Solo trolley piccoli con noi.</p></div></div>
+      <div class="step"><div class="time">08:45–09:10</div><div><h4>Nijo → Kyoto Station</h4><div class="transfer"><b>🚆 JR Sagano Line · ~10 min + cammino</b></div></div></div>
+      <div class="step"><div class="time">~09:30</div><div><h4>Kyoto → Hiroshima</h4><div class="transfer"><b>🚄 NOZOMI · ~1h40</b><small>Treno esatto da emettere.</small></div></div></div>
+      <div class="step"><div class="time">~11:20</div><div><h4>Hiroshima → Miyajimaguchi</h4><div class="transfer"><b>🚆 JR Sanyo Line · ~28 min</b></div></div></div>
+      <div class="step"><div class="time">~12:00</div><div><h4>Miyajimaguchi → Miyajima</h4><div class="transfer"><b>⛴️ JR Ferry · ~10 min</b></div></div></div>
+      <div class="step"><div class="time">12:30–13:30</div><div><h4>Arrivo isola + Kinsuikan</h4><p>Lasciare trolley al ryokan.</p></div></div>
+      <div class="step"><div class="time">13:30–14:45</div><div><h4>Omotesando + primo giro Torii</h4></div></div>
+      <div class="step"><div class="time">15:00</div><div><h4>Check-in Kinsuikan</h4></div></div>
+      <div class="step"><div class="time">15:30–16:15</div><div><h4>Itsukushima Shrine + Torii</h4></div></div>
+      <div class="step"><div class="time">16:15–17:00</div><div><h4>Daisho-in oppure Momijidani</h4></div></div>
+      <div class="step"><div class="time">17:00–18:15</div><div><h4>Rientro Kinsuikan + relax</h4></div></div>
+      <div class="step night"><div class="time">18:30</div><div><h4>Kaiseki</h4></div></div>
+      <div class="step night"><div class="time">20:30–21:30</div><div><h4>Passeggiata Torii notturno</h4></div></div>
+    </div>
+  </details>
 </section>
 
-<section id="tokyo">
-<div class="section-head"><div><div class="eyebrow">11–15 NOV</div><h2>Tokyo</h2></div><p>Tokyo diurna + reset hotel + Tokyo notturna.</p></div>
-<div class="city"><div class="cover" style="background-image:url('https://media.gettyimages.com/id/1403652334/photo/tokyo-japan-aerial-view-of-shibuya-at-night.jpg?s=2048x2048&w=gi&k=20&c=Rr4j6Z7u3dQzJp2KfRwl5lDspnQvNE9h7pHqF_g8S6I=')"><div class="label"><span class="pill">DAY</span><span class="pill">RESET</span><span class="pill">NIGHT</span><h3>TOKYO</h3></div></div><div class="card"><h3>Premier hotel -CABIN PRESIDENT- Tokyo</h3><p>11–15 novembre · Harumi/Kachidoki</p><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Premier+Hotel+CABIN+PRESIDENT+Tokyo">Maps</a></div></div>
-<div class="note" style="margin-top:12px"><b>REGOLA TOKYO:</b> attività fino ~16:30/17:00 → hotel → doccia/riposo/cambio → seconda uscita 19:00/19:30.</div>
+<section class="section" id="hiroshima">
+  <div class="section-head"><div class="kicker">11 NOV</div><h2>Hiroshima → Tokyo</h2><p>Peace Park + Museum, poi Shinkansen diretto.</p></div>
+  <div class="cover" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Genbaku_Dome04-r.JPG/1280px-Genbaku_Dome04-r.JPG')"><div class="cover-label"><span class="pill">MEMORY</span><span class="pill">PEACE</span><h3>HIROSHIMA</h3></div></div>
 
-<div class="dayplan"><div class="daytitle"><div class="eyebrow">12 NOV · EAST TOKYO + ELEGANT NIGHT</div><h3>Asakusa → Kappabashi → Ueno → reset → Ginza/Marunouchi</h3></div>
-<div class="step"><div class="step-time">08:00–09:00</div><div><h4>Colazione + partenza</h4></div></div>
-<div class="step"><div class="step-time">09:00–09:45</div><div><h4>Hotel → Asakusa</h4><div class="move"><b>🚇 Metro · ~40–45 min</b><small>Kachidoki → area Asakusa con cambio; percorso esatto da scegliere in Maps il giorno stesso.</small></div></div>
-<div class="step"><div class="step-time">09:45–11:00</div><div><h4>Asakusa / Senso-ji</h4></div></div>
-<div class="step"><div class="step-time">11:00–11:15</div><div><h4>Asakusa → Kappabashi</h4><div class="move"><b>🚶 A piedi · ~15 min</b></div></div>
-<div class="step"><div class="step-time">11:15–13:15</div><div><h4>Kappabashi</h4><p>Coltelli, stoviglie, utensili, ceramiche, packaging.</p></div></div>
-<div class="step"><div class="step-time">13:15–14:15</div><div><h4>Pranzo</h4></div></div>
-<div class="step"><div class="step-time">14:15–14:35</div><div><h4>Kappabashi → Ueno/Ameyoko</h4><div class="move"><b>🚶 / metro · ~15–20 min</b></div></div>
-<div class="step"><div class="step-time">14:35–16:15</div><div><h4>Ueno + Ameyoko</h4></div></div>
-<div class="step resetstep"><div class="step-time">16:15–17:00</div><div><h4>Ueno → hotel</h4><div class="move"><b>🚇 Metro · ~40–45 min</b></div></div>
-<div class="step resetstep"><div class="step-time">17:00–19:15</div><div><h4>RESET HOTEL</h4><p>Doccia, pausa, cambio completo.</p></div></div>
-<div class="step nightstep"><div class="step-time">19:15–19:40</div><div><h4>Hotel → Ginza/Marunouchi</h4><div class="move"><b>🚕 Taxi · ~15–25 min</b><small>La sera meglio taxi per arrivare freschi.</small></div></div>
-<div class="step nightstep"><div class="step-time">19:40–23:00</div><div><h4>Cena + cocktail + Marunouchi Illumination</h4><p>Ginza/Marunouchi, poi Naka-dori illuminata e Tokyo Station by night.</p></div></div></div>
-
-<div class="dayplan"><div class="daytitle"><div class="eyebrow">13 NOV · WEST TOKYO + SHINJUKU NIGHT</div><h3>Meiji → Omotesando → Shibuya → Sake Park → reset → Rokkasen/Golden Gai</h3></div>
-<div class="step"><div class="step-time">09:00–09:45</div><div><h4>Hotel → Meiji Jingu</h4><div class="move"><b>🚇 Metro · ~40–45 min</b></div></div>
-<div class="step"><div class="step-time">09:45–11:00</div><div><h4>Meiji Jingu</h4></div></div>
-<div class="step"><div class="step-time">11:00–11:45</div><div><h4>Harajuku</h4><div class="move"><b>🚶 A piedi</b></div></div>
-<div class="step"><div class="step-time">11:45–13:15</div><div><h4>Omotesando + pranzo leggero</h4><div class="move"><b>🚶 A piedi</b></div></div>
-<div class="step"><div class="step-time">13:15–13:35</div><div><h4>Omotesando → Shibuya</h4><div class="move"><b>🚶 / metro · ~15–20 min</b></div></div>
-<div class="step"><div class="step-time">13:35–15:15</div><div><h4>Shibuya</h4></div></div>
-<div class="step"><div class="step-time">15:30–17:10</div><div><h4>Shibuya Sky</h4><p>Slot sunset prioritario.</p></div></div>
-<div class="step"><div class="step-time">17:10–18:00</div><div><h4>Sake Park · Miyashita Park</h4><div class="move"><b>🚶 A piedi · ~10 min</b><small>Degustazione breve, non cena.</small></div></div>
-<div class="step resetstep"><div class="step-time">18:00–18:40</div><div><h4>Shibuya → hotel</h4><div class="move"><b>🚕 Taxi · ~25–40 min</b><small>Scelta comfort per proteggere la serata.</small></div></div>
-<div class="step resetstep"><div class="step-time">18:40–20:15</div><div><h4>RESET HOTEL</h4></div></div>
-<div class="step nightstep"><div class="step-time">20:15–20:45</div><div><h4>Hotel → Shinjuku</h4><div class="move"><b>🚕 Taxi · ~30–40 min</b></div></div>
-<div class="step nightstep"><div class="step-time">20:45–22:15</div><div><h4>Rokkasen</h4><p>Sede esatta da fissare in prenotazione.</p></div></div>
-<div class="step nightstep"><div class="step-time">22:15–00:30</div><div><h4>Kabukicho → Golden Gai</h4><div class="move"><b>🚶 A piedi</b><small>1–2 micro-bar, passeggiata notturna.</small></div></div></div>
-
-<div class="dayplan"><div class="daytitle"><div class="eyebrow">14 NOV · FOOD + MARKETS + CONTEMPORARY TOKYO</div><h3>Market of the Sun → Tsukiji → Nihonbashi vintage → teamLab → Roppongi night</h3></div>
-<div class="step"><div class="step-time">09:30–10:30</div><div><h4>Market of the Sun · Kachidoki</h4><div class="move"><b>🚶 / breve taxi dall'hotel</b><small>È praticamente in zona.</small></div></div>
-<div class="step"><div class="step-time">10:30–10:50</div><div><h4>Kachidoki → Tsukiji</h4><div class="move"><b>🚶 / taxi · ~10–20 min</b></div></div>
-<div class="step"><div class="step-time">10:50–12:00</div><div><h4>Tsukiji Outer Market</h4></div></div>
-<div class="step"><div class="step-time">12:00–12:25</div><div><h4>Tsukiji → Nihonbashi</h4><div class="move"><b>🚇 Metro / taxi · ~20–25 min</b></div></div>
-<div class="step"><div class="step-time">12:25–14:00</div><div><h4>Nihonbashi Used Clothing & Antiques + OLD NEW MARKET</h4><p>Vintage, antiquariato, artigiani, ceramiche e design.</p></div></div>
-<div class="step"><div class="step-time">14:00–14:45</div><div><h4>Pranzo</h4></div></div>
-<div class="step"><div class="step-time">14:45–15:15</div><div><h4>Nihonbashi → Azabudai Hills</h4><div class="move"><b>🚇 Metro / taxi · ~25–30 min</b></div></div>
-<div class="step"><div class="step-time">15:30–17:30</div><div><h4>teamLab Borderless</h4></div></div>
-<div class="step"><div class="step-time">17:30–18:00</div><div><h4>Azabudai Hills</h4></div></div>
-<div class="step resetstep"><div class="step-time">18:00–18:30</div><div><h4>Azabudai → hotel</h4><div class="move"><b>🚕 Taxi · ~20–30 min</b></div></div>
-<div class="step resetstep"><div class="step-time">18:30–20:00</div><div><h4>RESET HOTEL</h4></div></div>
-<div class="step nightstep"><div class="step-time">20:00–20:30</div><div><h4>Hotel → Roppongi/Azabu</h4><div class="move"><b>🚕 Taxi · ~20–30 min</b></div></div>
-<div class="step nightstep"><div class="step-time">20:30–23:30</div><div><h4>Cena + cocktail + Keyakizaka Illumination</h4><p>Tokyo Tower view e nightlife elegante.</p></div></div></div>
-
-<div class="dayplan"><div class="daytitle"><div class="eyebrow">15 NOV · LAST DAY</div><h3>Furugi Festival → hotel → Haneda</h3><p>Ultimo giorno costruito intorno all'evento speciale, non a una checklist turistica.</p></div>
-<div class="step"><div class="step-time">08:30–09:30</div><div><h4>Colazione + checkout</h4><p>Lasciare bagagli in hotel.</p></div></div>
-<div class="step"><div class="step-time">09:45–10:15</div><div><h4>Hotel → Tokyo Big Sight</h4><div class="move"><b>🚕 Taxi · ~15–25 min</b><small>Molto più semplice con il tempo contato; evento East Halls.</small></div></div>
-<div class="step"><div class="step-time">10:30–13:30</div><div><h4>FURUGI FESTIVAL</h4><p>Vintage clothing / second-hand. Evento principale dell'ultimo giorno.</p></div></div>
-<div class="step"><div class="step-time">13:30–14:30</div><div><h4>Pranzo Ariake/Toyosu</h4></div></div>
-<div class="step"><div class="step-time">14:30–15:00</div><div><h4>Big Sight → hotel</h4><div class="move"><b>🚕 Taxi · ~15–25 min</b></div></div>
-<div class="step resetstep"><div class="step-time">15:00–16:30</div><div><h4>Ultimo reset + bagagli</h4><p>Pausa, sistemazione finale, cambio se serve.</p></div></div>
-<div class="step"><div class="step-time">17:00–17:30</div><div><h4>Hotel → Haneda</h4><div class="move"><b>🚕 Taxi · ~30–45 min</b><small>Partenza comoda con ampio margine.</small></div></div>
-<div class="step"><div class="step-time">~18:15</div><div><h4>Arrivo HND</h4></div></div>
-<div class="step"><div class="step-time">22:05</div><div><h4>Volo HND → IST</h4></div></div></div>
+  <details class="day" id="d11" data-date="2026-11-11">
+    <summary><div class="day-date">11 NOV · MIYAJIMA → HIROSHIMA → TOKYO</div><div class="day-title">Mattina sull'isola, Hiroshima essenziale, poi Tokyo</div></summary>
+    <div class="steps">
+      <div class="step"><div class="time">07:00–07:45</div><div><h4>Sveglia + breve passeggiata</h4></div></div>
+      <div class="step"><div class="time">08:00</div><div><h4>Colazione Kinsuikan</h4></div></div>
+      <div class="step"><div class="time">09:45–10:15</div><div><h4>Kinsuikan → ferry → Miyajimaguchi</h4></div></div>
+      <div class="step"><div class="time">10:20–10:50</div><div><h4>Miyajimaguchi → Hiroshima Station</h4><div class="transfer"><b>🚆 JR Sanyo Line · ~28 min</b></div></div></div>
+      <div class="step"><div class="time">11:00</div><div><h4>Deposito trolley Hiroshima Station</h4></div></div>
+      <div class="step"><div class="time">11:05–11:20</div><div><h4>Station → Peace Memorial Park</h4><div class="transfer"><b>🚕 Taxi · ~15 min</b></div></div></div>
+      <div class="step"><div class="time">11:20–12:10</div><div><h4>Atomic Bomb Dome + Peace Park</h4></div></div>
+      <div class="step"><div class="time">12:15–14:15</div><div><h4>Peace Memorial Museum</h4></div></div>
+      <div class="step"><div class="time">14:15–15:05</div><div><h4>Pranzo Hiroshima</h4><p>Okonomiyaki se logisticamente comodo.</p></div></div>
+      <div class="step"><div class="time">15:05–15:25</div><div><h4>Peace Park → Hiroshima Station</h4><div class="transfer"><b>🚕 Taxi · ~15–20 min</b></div></div></div>
+      <div class="step"><div class="time">16:03</div><div><h4>Hiroshima → Tokyo</h4><div class="transfer"><b>🚄 NOZOMI diretto · ~3h54</b><small>Target da verificare/emettere.</small></div></div></div>
+      <div class="step"><div class="time">19:57–20:40</div><div><h4>Tokyo Station → hotel</h4><div class="transfer"><b>🚕 Taxi · ~20–30 min</b></div></div></div>
+      <div class="step night"><div class="time">21:00</div><div><h4>Check-in + cena semplice</h4></div></div>
+    </div>
+  </details>
 </section>
 
-<section id="todo"><div class="section-head"><div><div class="eyebrow">Control room</div><h2>Da chiudere</h2></div><p>Checklist operativa.</p></div><div class="grid two"><div class="card check"><label><input type="checkbox"> Cup Noodles Museum / My CUPNOODLES: verificare modalità accesso</label><label><input type="checkbox"> Shibuya Sky sunset</label><label><input type="checkbox"> teamLab Borderless</label><label><input type="checkbox"> Rokkasen Shinjuku</label><label><input type="checkbox"> Peace Museum Hiroshima</label><label><input type="checkbox"> Shinkansen Kyoto→Hiroshima</label><label><input type="checkbox"> Shinkansen Hiroshima→Tokyo</label></div><div class="card check"><label><input type="checkbox"> Confermare takkyubin Kyoto→Tokyo</label><label><input type="checkbox"> Ricezione bagagli hotel Tokyo</label><label><input type="checkbox"> Orario cena Kinsuikan</label><label><input type="checkbox"> Ristoranti Tokyo nights</label><label><input type="checkbox"> Cocktail bar Tokyo</label><label><input type="checkbox"> Furugi Festival 15 nov: biglietto/early entry se utile</label><label><input type="checkbox"> Caricare QR / PDF / assicurazione</label></div></div></section>
-<div class="footer">GIAPPONE 2026 · Travel OS · mobile-first · build 68f3997</div></div>
-<div class="quick"><a class="accent" href="#today">OGGI</a><a href="#osaka">GIORNI</a><a href="#todo">CHECK</a><button onclick="window.scrollTo({top:0,behavior:'smooth'})">TOP</button></div>
+<section class="section" id="tokyo">
+  <div class="section-head"><div class="kicker">11–15 NOV</div><h2>Tokyo</h2><p>Day → hotel reset → night. È la regola.</p></div>
+  <div class="city-grid">
+    <div class="cover" style="background-image:url('https://media.gettyimages.com/id/1403652334/photo/tokyo-japan-aerial-view-of-shibuya-at-night.jpg?s=2048x2048&w=gi&k=20&c=Rr4j6Z7u3dQzJp2KfRwl5lDspnQvNE9h7pHqF_g8S6I=')"><div class="cover-label"><span class="pill">DAY</span><span class="pill">RESET</span><span class="pill">NIGHT</span><h3>TOKYO</h3></div></div>
+    <div class="hotel"><h3>Premier hotel -CABIN PRESIDENT- Tokyo</h3><p>11–15 novembre · Harumi/Kachidoki</p><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Premier+Hotel+CABIN+PRESIDENT+Tokyo">Apri hotel in Maps →</a></div>
+  </div>
+  <div class="note">Attività fino ~16:30/17:00 → hotel → doccia/riposo/cambio → seconda uscita 19:00/19:30.</div>
+
+  <details class="day" id="d12" data-date="2026-11-12">
+    <summary><div class="day-date">12 NOV · EAST TOKYO + ELEGANT NIGHT</div><div class="day-title">Asakusa → Kappabashi → Ueno → reset → Ginza/Marunouchi</div></summary>
+    <div class="steps">
+      <div class="step"><div class="time">08:00–09:00</div><div><h4>Colazione + partenza</h4></div></div>
+      <div class="step"><div class="time">09:00–09:45</div><div><h4>Hotel → Asakusa</h4><div class="transfer"><b>🚇 Metro · ~40–45 min</b></div></div></div>
+      <div class="step"><div class="time">09:45–11:00</div><div><h4>Asakusa / Senso-ji</h4></div></div>
+      <div class="step"><div class="time">11:00–11:15</div><div><h4>Asakusa → Kappabashi</h4><div class="transfer"><b>🚶 A piedi · ~15 min</b></div></div></div>
+      <div class="step"><div class="time">11:15–13:15</div><div><h4>Kappabashi</h4><p>Coltelli, stoviglie, utensili, ceramiche, packaging.</p></div></div>
+      <div class="step"><div class="time">13:15–14:15</div><div><h4>Pranzo</h4></div></div>
+      <div class="step"><div class="time">14:15–14:35</div><div><h4>Kappabashi → Ueno/Ameyoko</h4></div></div>
+      <div class="step"><div class="time">14:35–16:15</div><div><h4>Ueno + Ameyoko</h4></div></div>
+      <div class="step reset"><div class="time">16:15–19:15</div><div><h4>Rientro + RESET HOTEL</h4><p>Doccia, pausa, cambio completo.</p></div></div>
+      <div class="step night"><div class="time">19:15–19:40</div><div><h4>Hotel → Ginza/Marunouchi</h4><div class="transfer"><b>🚕 Taxi · ~15–25 min</b></div></div></div>
+      <div class="step night"><div class="time">19:40–23:00</div><div><h4>Cena + cocktail + Marunouchi Illumination</h4></div></div>
+    </div>
+  </details>
+
+  <details class="day" id="d13" data-date="2026-11-13">
+    <summary><div class="day-date">13 NOV · WEST TOKYO + SHINJUKU NIGHT</div><div class="day-title">Meiji → Omotesando → Shibuya → Sake Park → Rokkasen → Golden Gai</div></summary>
+    <div class="steps">
+      <div class="step"><div class="time">09:00–09:45</div><div><h4>Hotel → Meiji Jingu</h4></div></div>
+      <div class="step"><div class="time">09:45–11:00</div><div><h4>Meiji Jingu</h4></div></div>
+      <div class="step"><div class="time">11:00–11:45</div><div><h4>Harajuku</h4></div></div>
+      <div class="step"><div class="time">11:45–13:15</div><div><h4>Omotesando + pranzo leggero</h4></div></div>
+      <div class="step"><div class="time">13:35–15:15</div><div><h4>Shibuya</h4></div></div>
+      <div class="step"><div class="time">15:30–17:10</div><div><h4>Shibuya Sky</h4><p>Slot sunset prioritario.</p></div></div>
+      <div class="step"><div class="time">17:10–18:00</div><div><h4>Sake Park · Miyashita Park</h4><p>Degustazione breve, non cena.</p></div></div>
+      <div class="step reset"><div class="time">18:00–20:15</div><div><h4>Shibuya → hotel + RESET</h4></div></div>
+      <div class="step night"><div class="time">20:15–20:45</div><div><h4>Hotel → Shinjuku</h4><div class="transfer"><b>🚕 Taxi · ~30–40 min</b></div></div></div>
+      <div class="step night"><div class="time">20:45–22:15</div><div><h4>Rokkasen</h4></div></div>
+      <div class="step night"><div class="time">22:15–00:30</div><div><h4>Kabukicho → Golden Gai</h4><p>1–2 microbar, passeggiata notturna.</p></div></div>
+    </div>
+  </details>
+
+  <details class="day" id="d14" data-date="2026-11-14">
+    <summary><div class="day-date">14 NOV · FOOD + MARKETS + CONTEMPORARY</div><div class="day-title">Market of the Sun → Tsukiji → Nihonbashi vintage → teamLab → Roppongi</div></summary>
+    <div class="steps">
+      <div class="step"><div class="time">09:30–10:30</div><div><h4>Market of the Sun · Kachidoki</h4></div></div>
+      <div class="step"><div class="time">10:30–10:50</div><div><h4>Kachidoki → Tsukiji</h4></div></div>
+      <div class="step"><div class="time">10:50–12:00</div><div><h4>Tsukiji Outer Market</h4></div></div>
+      <div class="step"><div class="time">12:00–12:25</div><div><h4>Tsukiji → Nihonbashi</h4></div></div>
+      <div class="step"><div class="time">12:25–14:00</div><div><h4>Nihonbashi Used Clothing & Antiques + OLD NEW MARKET</h4></div></div>
+      <div class="step"><div class="time">14:00–14:45</div><div><h4>Pranzo</h4></div></div>
+      <div class="step"><div class="time">14:45–15:15</div><div><h4>Nihonbashi → Azabudai Hills</h4></div></div>
+      <div class="step"><div class="time">15:30–17:30</div><div><h4>teamLab Borderless</h4></div></div>
+      <div class="step"><div class="time">17:30–18:00</div><div><h4>Azabudai Hills</h4></div></div>
+      <div class="step reset"><div class="time">18:00–20:00</div><div><h4>Rientro + RESET HOTEL</h4></div></div>
+      <div class="step night"><div class="time">20:00–20:30</div><div><h4>Hotel → Roppongi/Azabu</h4></div></div>
+      <div class="step night"><div class="time">20:30–23:30</div><div><h4>Cena + cocktail + Keyakizaka Illumination</h4></div></div>
+    </div>
+  </details>
+
+  <details class="day" id="d15" data-date="2026-11-15">
+    <summary><div class="day-date">15 NOV · LAST DAY</div><div class="day-title">Furugi Festival → hotel → Haneda</div></summary>
+    <div class="steps">
+      <div class="step"><div class="time">08:30–09:30</div><div><h4>Colazione + checkout</h4><p>Lasciare bagagli in hotel.</p></div></div>
+      <div class="step"><div class="time">09:45–10:15</div><div><h4>Hotel → Tokyo Big Sight</h4><div class="transfer"><b>🚕 Taxi · ~15–25 min</b></div></div></div>
+      <div class="step"><div class="time">10:30–13:30</div><div><h4>FURUGI FESTIVAL</h4></div></div>
+      <div class="step"><div class="time">13:30–14:30</div><div><h4>Pranzo Ariake/Toyosu</h4></div></div>
+      <div class="step"><div class="time">14:30–15:00</div><div><h4>Big Sight → hotel</h4></div></div>
+      <div class="step reset"><div class="time">15:00–16:30</div><div><h4>Ultimo reset + bagagli</h4></div></div>
+      <div class="step"><div class="time">17:00–17:30</div><div><h4>Hotel → Haneda</h4><div class="transfer"><b>🚕 Taxi · ~30–45 min</b></div></div></div>
+      <div class="step"><div class="time">~18:15</div><div><h4>Arrivo HND</h4></div></div>
+      <div class="step"><div class="time">22:05</div><div><h4>Volo HND → IST</h4></div></div>
+    </div>
+  </details>
+</section>
+
+<section class="section" id="todo">
+  <div class="section-head"><div class="kicker">CONTROL ROOM</div><h2>Da chiudere</h2><p>Checklist operativa.</p></div>
+  <div class="checks">
+    <label class="check"><input type="checkbox"><span>Cup Noodles Museum / My CUPNOODLES: verificare modalità accesso</span></label>
+    <label class="check"><input type="checkbox"><span>Shibuya Sky sunset</span></label>
+    <label class="check"><input type="checkbox"><span>teamLab Borderless</span></label>
+    <label class="check"><input type="checkbox"><span>Rokkasen Shinjuku</span></label>
+    <label class="check"><input type="checkbox"><span>Peace Memorial Museum Hiroshima</span></label>
+    <label class="check"><input type="checkbox"><span>Shinkansen Kyoto → Hiroshima</span></label>
+    <label class="check"><input type="checkbox"><span>Shinkansen Hiroshima → Tokyo</span></label>
+    <label class="check"><input type="checkbox"><span>Confermare takkyubin Kyoto → Tokyo</span></label>
+    <label class="check"><input type="checkbox"><span>Confermare ricezione bagagli hotel Tokyo</span></label>
+    <label class="check"><input type="checkbox"><span>Orario cena Kinsuikan</span></label>
+    <label class="check"><input type="checkbox"><span>Ristoranti e cocktail bar Tokyo nights</span></label>
+    <label class="check"><input type="checkbox"><span>Furugi Festival: ticket / early entry se utile</span></label>
+    <label class="check"><input type="checkbox"><span>Caricare QR, PDF, assicurazione e Visit Japan Web</span></label>
+  </div>
+</section>
+
+<div class="footer">GIAPPONE 2026 · Travel Bible · mobile rebuild v2</div>
+</div>
+
 <script>
-const d={
-'2026-11-05':['Arrivo Osaka','CABIN PRESIDENT Osaka','KIX → hotel → Tenma','Arrival','Atterra a KIX, immigrazione/bagagli e trasferimento a Minamimorimachi. Cena semplice a Tenma.','https://www.google.com/maps/dir/?api=1&origin=Kansai+International+Airport&destination=Premier+Hotel+CABIN+PRESIDENT+Osaka'],
-'2026-11-06':['Osaka città','CABIN PRESIDENT Osaka','Osaka-jō','City day','Osaka-jō, Nakanoshima, Shinsekai, Namba e Dotonbori.','https://www.google.com/maps/search/?api=1&query=Osaka+Castle'],
-'2026-11-07':['Osaka Nord → Kyoto','Royal Park Canvas Kyoto Nijo','Cup Noodles → Umeda','City + Transfer','Cup Noodles Museum, Umeda, Grand Green e Umeda Sky. Poi trasferimento a Kyoto.','https://www.google.com/maps/search/?api=1&query=CUPNOODLES+Museum+Osaka+Ikeda'],
+const trip={
+'2026-11-05':['Arrivo Osaka','CABIN PRESIDENT Osaka','KIX → hotel → Tenma','Arrival','Atterra a KIX, poi trasferimento a Minamimorimachi e cena a Tenma.','https://www.google.com/maps/dir/?api=1&origin=Kansai+International+Airport&destination=Premier+Hotel+CABIN+PRESIDENT+Osaka'],
+'2026-11-06':['Osaka città','CABIN PRESIDENT Osaka','Osaka-jō','City day','Osaka-jō, Nakanoshima, Kuromon, Shinsekai, Namba e Dotonbori.','https://www.google.com/maps/search/?api=1&query=Osaka+Castle'],
+'2026-11-07':['Osaka Nord → Kyoto','Royal Park Canvas Kyoto Nijo','Cup Noodles → Umeda','City + Transfer','Cup Noodles, Umeda, Umeda Sky e trasferimento a Kyoto.','https://www.google.com/maps/search/?api=1&query=CUPNOODLES+Museum+Osaka+Ikeda'],
 '2026-11-08':['Kyoto Est','Royal Park Canvas Kyoto Nijo','Fushimi Inari','Kyoto day','Fushimi Inari, Kiyomizu, Higashiyama, Gion e Pontocho.','https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha'],
-'2026-11-09':['Kyoto Ovest','Royal Park Canvas Kyoto Nijo','Arashiyama','Kyoto day','Arashiyama, Kinkaku-ji, Nishiki. Sera: valigie grandi per Tokyo.','https://www.google.com/maps/search/?api=1&query=Arashiyama+Kyoto'],
+'2026-11-09':['Kyoto Ovest','Royal Park Canvas Kyoto Nijo','Arashiyama','Kyoto day','Arashiyama, Kinkaku-ji, Nishiki. Sera: bagagli grandi per Tokyo.','https://www.google.com/maps/search/?api=1&query=Arashiyama+Kyoto'],
 '2026-11-10':['Miyajima','Kinsuikan','Takkyubin + Shinkansen','Ryokan','Spedisci i bagagli grandi a Tokyo e viaggia leggero.','https://www.google.com/maps/search/?api=1&query=Kinsuikan+Miyajima'],
 '2026-11-11':['Hiroshima → Tokyo','CABIN PRESIDENT Tokyo','Peace Memorial Park','Transfer','Miyajima, Peace Park/Museum, poi Shinkansen diretto Tokyo.','https://www.google.com/maps/search/?api=1&query=Hiroshima+Peace+Memorial+Museum'],
-'2026-11-12':['East Tokyo','CABIN PRESIDENT Tokyo','Asakusa → Kappabashi','Day + Night','Asakusa e Kappabashi. Reset hotel. Ginza/Marunouchi la sera.','https://www.google.com/maps/search/?api=1&query=Kappabashi+Tokyo'],
-'2026-11-13':['West Tokyo','CABIN PRESIDENT Tokyo','Meiji / Shibuya','Day + Night','Meiji, Harajuku, Omotesando, Shibuya. Reset. Rokkasen + Golden Gai.','https://www.google.com/maps/search/?api=1&query=Shibuya+Tokyo'],
-'2026-11-14':['Markets + Contemporary Tokyo','CABIN PRESIDENT Tokyo','Market of the Sun','Day + Night','Market of the Sun, Tsukiji, Nihonbashi vintage, teamLab/Azabudai. Reset. Roppongi + Keyakizaka.','https://www.google.com/maps/search/?api=1&query=Kachidoki+Tokyo'],
-'2026-11-15':['Ultimo giorno','CABIN PRESIDENT Tokyo → HND','Furugi Festival','Last day','Furugi Festival al Tokyo Big Sight, pranzo, ultimo reset in hotel e taxi per Haneda.','https://www.google.com/maps/search/?api=1&query=Tokyo+Big+Sight']};
-const n=new Date(),k=[n.getFullYear(),String(n.getMonth()+1).padStart(2,'0'),String(n.getDate()).padStart(2,'0')].join('-'),x=d[k];
-if(x){todayDate.textContent='Modalità viaggio attiva · '+k.split('-').reverse().join('/');todayTitle.textContent=x[0];todayHotel.textContent=x[1];todayNext.textContent=x[2];todayMode.textContent=x[3];todayText.textContent=x[4];todayMap.href=x[5]}
-document.querySelectorAll('.check input').forEach((e,i)=>{let k='jp26-'+i;e.checked=localStorage.getItem(k)==='1';e.onchange=()=>localStorage.setItem(k,e.checked?'1':'0')});
-</script></body></html>
+'2026-11-12':['East Tokyo','CABIN PRESIDENT Tokyo','Asakusa → Kappabashi','Day + Night','Asakusa, Kappabashi, Ueno. Reset. Ginza/Marunouchi la sera.','https://www.google.com/maps/search/?api=1&query=Kappabashi+Tokyo'],
+'2026-11-13':['West Tokyo','CABIN PRESIDENT Tokyo','Meiji / Shibuya','Day + Night','Meiji, Harajuku, Omotesando, Shibuya, Sake Park. Reset. Rokkasen + Golden Gai.','https://www.google.com/maps/search/?api=1&query=Shibuya+Tokyo'],
+'2026-11-14':['Markets + Contemporary Tokyo','CABIN PRESIDENT Tokyo','Market of the Sun','Day + Night','Market of the Sun, Tsukiji, Nihonbashi vintage, teamLab. Reset. Roppongi.','https://www.google.com/maps/search/?api=1&query=Kachidoki+Tokyo'],
+'2026-11-15':['Ultimo giorno','CABIN PRESIDENT Tokyo → HND','Furugi Festival','Last day','Furugi Festival, pranzo, hotel e taxi per Haneda.','https://www.google.com/maps/search/?api=1&query=Tokyo+Big+Sight']
+};
+const now=new Date();
+const key=[now.getFullYear(),String(now.getMonth()+1).padStart(2,'0'),String(now.getDate()).padStart(2,'0')].join('-');
+const x=trip[key];
+if(x){
+  todayTitle.textContent=x[0];todayHotel.textContent=x[1];todayNext.textContent=x[2];
+  todayMode.textContent=x[3];todayText.textContent=x[4];todayMap.href=x[5];
+  todayDate.textContent=key.split('-').reverse().join('/');
+  const day=document.querySelector('.day[data-date="'+key+'"]'); if(day) day.open=true;
+  const nav=document.querySelector('.daynav a[href="#'+(day?day.id:'today')+'"]'); if(nav) nav.classList.add('active');
+}else{
+  todayDate.textContent='Planning';
+}
+document.querySelectorAll('.check input').forEach((e,i)=>{
+  const k='jp26-v2-'+i;e.checked=localStorage.getItem(k)==='1';
+  e.addEventListener('change',()=>localStorage.setItem(k,e.checked?'1':'0'));
+});
+document.querySelectorAll('.daynav a').forEach(a=>a.addEventListener('click',()=>{
+  const t=document.querySelector(a.getAttribute('href')); if(t&&t.tagName==='DETAILS') t.open=true;
+}));
+</script>
+</body>
+</html>
