@@ -72,6 +72,24 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 10px}
 .check input{margin-top:2px;transform:scale(1.15)}.check span{font-size:13px;line-height:1.35}
 .footer{margin-top:30px;padding:20px 0 24px;color:var(--muted);font-size:10px;text-align:center}
 
+
+.hotel-booking{display:block}
+.hotel-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.hotel-top h3{margin:3px 0 4px}
+.hotel-city{font-size:9px;font-weight:900;letter-spacing:.14em;color:var(--gold)}
+.hotel-status{flex:0 0 auto;padding:5px 7px;border-radius:999px;background:rgba(112,214,176,.10);border:1px solid rgba(112,214,176,.35);color:var(--green);font-size:8px;font-weight:900;letter-spacing:.08em}
+.hotel-dates{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.hotel-dates>div,.hotel-code>div{padding:9px 10px;border:1px solid rgba(255,255,255,.07);border-radius:11px;background:#0f141a;min-width:0}
+.hotel-dates span,.hotel-code span{display:block;color:var(--muted);font-size:8px;font-weight:800;letter-spacing:.1em}
+.hotel-dates b{display:block;margin-top:3px;font-size:13px}
+.hotel-dates small{display:block;margin-top:2px;color:var(--muted);font-size:10px}
+.hotel-code{display:grid;grid-template-columns:1.5fr .7fr;gap:8px;margin-top:8px}
+.hotel-code b{display:block;margin-top:3px;font:800 14px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;color:#fff;overflow-wrap:anywhere}
+.hotel-meta{margin-top:9px;color:#c4cdd6;font-size:11px}
+.hotel-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:11px}
+.hotel-actions a{display:flex;align-items:center;justify-content:center;min-height:39px;margin:0;padding:8px 7px;border:1px solid #35414e;border-radius:10px;background:#151c24;color:#f5f7fa!important;text-decoration:none;font-size:11px;font-weight:800}
+.hotel-actions a:nth-last-child(-n+2){border-color:rgba(243,198,106,.35);color:var(--gold)!important;background:rgba(243,198,106,.06)}
+
 @media(min-width:760px){
   .app{max-width:1180px;padding:18px}
   .hero{padding:28px}.hero h1,h1{font-size:72px}.hero p{font-size:18px}
@@ -126,7 +144,31 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 10px}
   <div class="section-head"><div class="kicker">05–07 NOV</div><h2>Osaka</h2><p>Prima visita: città, food, quartieri e skyline.</p></div>
   <div class="city-grid">
     <div class="cover" style="background-image:url('https://pic.k-cdn.media/2020/09/20200904-photographer-Robert-main.jpg')"><div class="cover-label"><span class="pill">CITY</span> <span class="pill">FOOD</span> <span class="pill">NIGHT</span><h3>OSAKA</h3></div></div>
-    <div class="hotel"><h3>Premier Hotel -CABIN PRESIDENT- Osaka</h3><p>5–7 novembre · Minamimorimachi</p><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Premier+Hotel+CABIN+PRESIDENT+Osaka">Apri hotel in Maps →</a></div>
+    <div class="hotel hotel-booking">
+      <div class="hotel-top">
+        <div>
+          <div class="hotel-city">OSAKA · 05–07 NOV</div>
+          <h3>Premier Hotel CABIN PRESIDENT Osaka</h3>
+          <p>Premier Floor · Queen Room · Non-Smoking</p>
+        </div>
+        <span class="hotel-status">CONFERMATO</span>
+      </div>
+      <div class="hotel-dates">
+        <div><span>ARRIVO</span><b>Gio 5 nov</b><small>dalle 15:00</small></div>
+        <div><span>PARTENZA</span><b>Sab 7 nov</b><small>entro le 11:00</small></div>
+      </div>
+      <div class="hotel-code">
+        <div><span>CONFERMA</span><b>5415452368</b></div>
+        <div><span>PIN</span><b>6152</b></div>
+      </div>
+      <div class="hotel-meta">2 adulti · circa €224 / ¥39.275 · Minamimorimachi</div>
+      <div class="hotel-actions">
+        <a target="_blank" rel="noopener" href="https://www.booking.com/hotel/jp/premiumhotel-cabin-osaka.it.html">Booking ↗</a>
+        <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Premier+Hotel+CABIN+PRESIDENT+Osaka">Maps ↗</a>
+        <a target="_blank" rel="noopener" href="./docs/osaka-hotel-confirmation-it.pdf">PDF IT ↗</a>
+        <a target="_blank" rel="noopener" href="./docs/osaka-hotel-confirmation-jp.pdf">PDF JP ↗</a>
+      </div>
+    </div>
   </div>
 
   <details class="day" id="d05" data-date="2026-11-05">
