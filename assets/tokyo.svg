@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#07111f"/><stop offset=".55" stop-color="#14263a"/><stop offset="1" stop-color="#4f2b39"/></linearGradient>
+<radialGradient id="glow" cx=".72" cy=".28" r=".45"><stop stop-color="#ffbd73" stop-opacity=".55"/><stop offset="1" stop-color="#ff9f66" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#sky)"/><rect width="1600" height="900" fill="url(#glow)"/>
+<circle cx="1190" cy="160" r="62" fill="#f6d79a" opacity=".9"/>
+<g fill="#0b1119"><rect x="0" y="510" width="170" height="390"/><rect x="130" y="420" width="150" height="480"/><rect x="255" y="560" width="120" height="340"/><rect x="360" y="465" width="180" height="435"/><rect x="520" y="600" width="100" height="300"/><rect x="610" y="490" width="130" height="410"/><rect x="1260" y="480" width="160" height="420"/><rect x="1390" y="560" width="210" height="340"/></g>
+<g stroke="#ff7a59" stroke-width="22" fill="none" stroke-linecap="round"><path d="M960 690 L1035 385 L1110 690"/><path d="M985 590 L1084 590"/><path d="M1008 495 L1060 495"/></g>
+<g stroke="#ffb18a" stroke-width="8" fill="none"><path d="M1025 385 L1038 325 L1050 385"/></g>
+<rect y="785" width="1600" height="115" fill="#070b10"/>
+<text x="85" y="170" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="72" font-weight="700" letter-spacing="10">TOKYO</text>
+<text x="90" y="222" fill="#f3c66a" font-family="Arial,Helvetica,sans-serif" font-size="22" letter-spacing="6">NIGHT / CITY / LIGHT</text>
+</svg>
