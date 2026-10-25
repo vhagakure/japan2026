@@ -44,12 +44,12 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
 .meteo-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:0 14px 11px}
 .meteo-mini{padding:9px 10px;border:1px solid rgba(255,255,255,.07);border-radius:11px;background:#0d131a}
 .meteo-mini b{display:block;font-size:11px}.meteo-mini span{display:block;margin-top:2px;color:var(--muted);font-size:9px;line-height:1.35}
-.meteo-map{position:relative;height:270px;border-top:1px solid rgba(255,255,255,.07);background:#090d12}
+.meteo-map{position:relative;height:235px;border-top:1px solid rgba(255,255,255,.07);background:#090d12;overflow:hidden}
 .meteo-map iframe{width:100%;height:100%;border:0;display:block;background:#090d12}
 .meteo-fallback{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:7px;pointer-events:none}
 .meteo-fallback a{pointer-events:auto;flex:1;display:flex;align-items:center;justify-content:center;min-height:38px;padding:7px 8px;border-radius:10px;background:rgba(8,12,17,.88);border:1px solid rgba(255,255,255,.15);color:#fff;text-decoration:none;font-size:10px;font-weight:850;backdrop-filter:blur(8px)}
 .meteo-note{padding:10px 14px 13px;color:var(--muted);font-size:9px;line-height:1.45}
-@media(min-width:760px){.meteo-map{height:390px}.meteo-grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:760px){.meteo-map{height:330px}.meteo-grid{grid-template-columns:repeat(4,1fr)}}
 .daynav-wrap{position:sticky;top:0;z-index:20;margin:10px -12px 0;padding:8px 12px;background:rgba(10,12,16,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.05)}
 .daynav{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}.daynav::-webkit-scrollbar{display:none}
 .daynav a{flex:0 0 auto;text-decoration:none;border:1px solid var(--line);background:#11161c;border-radius:999px;padding:9px 11px;font-size:12px;white-space:nowrap}
@@ -180,7 +180,7 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
   </div>
   <div class="meteo-map">
     <iframe
-      src="https://embed.windy.com/embed2.html?lat=29.0&lon=124.7&detailLat=29.0&detailLon=124.7&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1"
+      src="https://embed.windy.com/embed2.html?lat=29.0&lon=124.7&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1"
       title="Mappa meteo live - area Tropical Storm Champi"
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
