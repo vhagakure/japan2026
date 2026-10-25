@@ -15,16 +15,55 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
 a{color:inherit}
 .app{width:100%;max-width:760px;margin:0 auto;padding:12px 12px 40px}
-.hero{padding:18px;border:1px solid var(--line);border-radius:22px;background:
-radial-gradient(circle at 85% 0%,rgba(243,198,106,.18),transparent 28%),
-linear-gradient(145deg,#171c23,#0c1015)}
+.hero{position:relative;overflow:hidden;padding:18px;border:1px solid var(--line);border-radius:22px;background:#0c1015}
+.hero:before{content:"";position:absolute;inset:0;background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxnSvC68iIFWc6KTJQ8EyHZuyFmuBVVUMgRxEdAptM4DlCx5Ueg1QWX9c&s=10');background-size:cover;background-position:center 45%;opacity:.20;filter:saturate(.9) contrast(1.05);transform:scale(1.03)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,10,14,.36),rgba(7,10,14,.92) 78%),radial-gradient(circle at 80% 0%,rgba(243,198,106,.22),transparent 34%)}
+.hero>*{position:relative;z-index:1}
 .kicker{font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;color:var(--gold)}
-h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 10px}
-.hero p{margin:0;color:#cbd3db}
-.hero-route{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:#d7dee6}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
-.stat{padding:11px;border:1px solid var(--line);border-radius:14px;background:#10151b}
-.stat b{display:block;font-size:15px;line-height:1.15}.stat span{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
+.hero-sub{margin:0;color:#d7dee6;font-size:13px;font-weight:650}
+.hero-route{margin-top:10px;font-size:11px;color:#c6d0da}
+.countdown-card{margin-top:15px;padding:13px;border:1px solid rgba(243,198,106,.32);border-radius:16px;background:rgba(9,13,18,.68);backdrop-filter:blur(10px)}
+.countdown-label{font-size:9px;font-weight:900;letter-spacing:.13em;color:var(--gold)}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.countdown-unit{padding:9px 5px;border:1px solid rgba(255,255,255,.09);border-radius:11px;background:rgba(255,255,255,.04);text-align:center}
+.countdown-unit b{display:block;font-size:22px;line-height:1;font-variant-numeric:tabular-nums}.countdown-unit span{display:block;margin-top:4px;color:var(--muted);font-size:8px;font-weight:800;letter-spacing:.08em}
+.countdown-deadline{margin-top:8px;color:#e6edf3;font-size:11px}.countdown-deadline b{color:#fff}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.stat{padding:10px;border:1px solid rgba(255,255,255,.09);border-radius:13px;background:rgba(10,15,21,.70);backdrop-filter:blur(8px)}
+.stat b{display:block;font-size:13px;line-height:1.15}.stat span{display:block;color:var(--muted);font-size:9px;margin-top:3px}
+.hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
+.hero-actions a{display:flex;align-items:center;justify-content:center;min-height:40px;border:1px solid rgba(255,255,255,.12);border-radius:11px;background:rgba(15,21,28,.78);text-decoration:none;font-size:11px;font-weight:850}
+.hero-actions a:first-child{background:var(--gold);border-color:var(--gold);color:#111}
+.meteo-live{margin-top:12px;border:1px solid rgba(143,212,255,.28);border-radius:18px;background:linear-gradient(145deg,#101821,#0b1016);overflow:hidden}
+.meteo-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:13px 14px 10px}
+.meteo-kicker{font-size:9px;font-weight:950;letter-spacing:.14em;color:var(--blue)}
+.meteo-title{margin:3px 0 3px;font-size:18px;line-height:1.15}
+.meteo-sub{margin:0;color:#c8d3dd;font-size:11px;line-height:1.4}
+.meteo-badge{flex:0 0 auto;padding:5px 8px;border-radius:999px;border:1px solid rgba(255,196,91,.35);background:rgba(255,196,91,.08);color:#ffd17c;font-size:8px;font-weight:900;letter-spacing:.08em}
+.meteo-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:0 14px 11px}
+.meteo-mini{padding:9px 10px;border:1px solid rgba(255,255,255,.07);border-radius:11px;background:#0d131a}
+.meteo-mini b{display:block;font-size:11px}.meteo-mini span{display:block;margin-top:2px;color:var(--muted);font-size:9px;line-height:1.35}
+.meteo-map{position:relative;height:235px;border-top:1px solid rgba(255,255,255,.07);background:#090d12;overflow:hidden}
+.meteo-map iframe{width:100%;height:100%;border:0;display:block;background:#090d12}
+.meteo-fallback{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:7px;pointer-events:none}
+.meteo-fallback a{pointer-events:auto;flex:1;display:flex;align-items:center;justify-content:center;min-height:38px;padding:7px 8px;border-radius:10px;background:rgba(8,12,17,.88);border:1px solid rgba(255,255,255,.15);color:#fff;text-decoration:none;font-size:10px;font-weight:850;backdrop-filter:blur(8px)}
+.meteo-note{padding:10px 14px 13px;color:var(--muted);font-size:9px;line-height:1.45}
+.city-weather{margin-top:12px}
+.city-weather-head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:0 2px 8px}
+.city-weather-head .kicker{color:var(--blue)}
+.city-weather-head small{color:var(--muted);font-size:9px}
+.city-weather-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.weather-box{position:relative;min-height:104px;padding:11px 12px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#121922,#0d1218);overflow:hidden}
+.weather-box:after{content:"LIVE";position:absolute;right:8px;top:8px;padding:3px 5px;border-radius:999px;background:rgba(112,214,176,.08);border:1px solid rgba(112,214,176,.25);color:var(--green);font-size:7px;font-weight:900;letter-spacing:.08em}
+.weather-main{display:flex;align-items:center;gap:8px;margin-top:3px}
+.weather-icon{font-size:28px;line-height:1}
+.weather-temp{font-size:27px;line-height:1;font-weight:900;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.weather-city{margin-top:9px;font-size:11px;font-weight:900;letter-spacing:.04em}
+.weather-desc{margin-top:2px;color:var(--muted);font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.weather-box.loading .weather-temp,.weather-box.loading .weather-desc{opacity:.55}
+@media(min-width:760px){.city-weather-grid{grid-template-columns:repeat(4,1fr)}.weather-box{min-height:112px}}
+@media(min-width:760px){.meteo-map{height:330px}.meteo-grid{grid-template-columns:repeat(4,1fr)}}
 .daynav-wrap{position:sticky;top:0;z-index:20;margin:10px -12px 0;padding:8px 12px;background:rgba(10,12,16,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.05)}
 .daynav{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}.daynav::-webkit-scrollbar{display:none}
 .daynav a{flex:0 0 auto;text-decoration:none;border:1px solid var(--line);background:#11161c;border-radius:999px;padding:9px 11px;font-size:12px;white-space:nowrap}
@@ -109,15 +148,94 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 10px}
 <header class="hero">
   <div class="kicker">Vincenzo + Barbara · Japan 2026</div>
   <h1>JAPAN<br>2026</h1>
-  <p>La Bibbia operativa del viaggio: dove siamo, cosa facciamo, come ci muoviamo e cosa viene dopo.</p>
-  <div class="hero-route">BRI → IST → KIX → Osaka → Kyoto → Miyajima → Hiroshima → Tokyo → HND</div>
+  <p class="hero-sub">4–16 novembre · Osaka · Kyoto · Miyajima · Tokyo</p>
+  <div class="hero-route">BRI 20:15 → IST → KIX · rientro HND 22:05 → IST → BRI</div>
+
+  <div class="countdown-card" aria-live="polite">
+    <div class="countdown-label">COUNTDOWN · ESSERE A BARI AIRPORT</div>
+    <div class="countdown" id="departureCountdown">
+      <div class="countdown-unit"><b id="cdDays">--</b><span>GIORNI</span></div>
+      <div class="countdown-unit"><b id="cdHours">--</b><span>ORE</span></div>
+      <div class="countdown-unit"><b id="cdMinutes">--</b><span>MIN</span></div>
+      <div class="countdown-unit"><b id="cdSeconds">--</b><span>SEC</span></div>
+    </div>
+    <div class="countdown-deadline"><b>Mer 4 nov · 18:15</b> · termine operativo per essere in aeroporto, 2h prima del volo.</div>
+  </div>
+
   <div class="stats">
-    <div class="stat"><b>4–16 NOV</b><span>12 giorni</span></div>
-    <div class="stat"><b>4 BASI</b><span>Osaka · Kyoto · Miyajima · Tokyo</span></div>
-    <div class="stat"><b>22:05</b><span>HND → IST il 15</span></div>
-    <div class="stat"><b>MOBILE FIRST</b><span>Uso pratico durante il viaggio</span></div>
+    <div class="stat"><b>TK1466 · 20:15</b><span>BRI → IST · 4 novembre</span></div>
+    <div class="stat"><b>KIX · 19:10</b><span>Arrivo Osaka · 5 novembre</span></div>
+    <div class="stat"><b>4 HOTEL</b><span>Osaka · Kyoto · Miyajima · Tokyo</span></div>
+    <div class="stat"><b>HND · 22:05</b><span>Partenza Tokyo · 15 novembre</span></div>
+  </div>
+
+  <div class="hero-actions">
+    <a href="#d05">Apri programma →</a>
+    <a href="#todo">Control Room</a>
+    <a href="#osaka">Hotel & tappe</a>
+    <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bari+Karol+Wojtyla+Airport">Aeroporto BRI ↗</a>
   </div>
 </header>
+
+<section class="city-weather" id="city-weather">
+  <div class="city-weather-head">
+    <div>
+      <div class="kicker">LIVE WEATHER</div>
+      <div style="margin-top:3px;font-size:16px;font-weight:900;color:#fff">Meteo attuale</div><small>Tokyo · Osaka · Kyoto · Miyajima</small>
+    </div>
+    <small id="weatherUpdated">aggiornamento live</small>
+  </div>
+  <div class="city-weather-grid">
+    <div class="weather-box loading" data-weather="tokyo">
+      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
+      <div class="weather-city">TOKYO</div><div class="weather-desc">Caricamento…</div>
+    </div>
+    <div class="weather-box loading" data-weather="osaka">
+      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
+      <div class="weather-city">OSAKA</div><div class="weather-desc">Caricamento…</div>
+    </div>
+    <div class="weather-box loading" data-weather="kyoto">
+      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
+      <div class="weather-city">KYOTO</div><div class="weather-desc">Caricamento…</div>
+    </div>
+    <div class="weather-box loading" data-weather="miyajima">
+      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
+      <div class="weather-city">MIYAJIMA</div><div class="weather-desc">Caricamento…</div>
+    </div>
+  </div>
+</section>
+
+<section class="meteo-live" id="meteo-live">
+  <div class="meteo-head">
+    <div>
+      <div class="meteo-kicker">LIVE METEO NEWS</div>
+      <h2 class="meteo-title">Champi · Typhoon 30</h2>
+      <p class="meteo-sub">Monitoraggio meteo Giappone · aggiornamento operativo del 25 ottobre 2026.</p>
+    </div>
+    <span class="meteo-badge">MONITORAGGIO</span>
+  </div>
+  <div class="meteo-grid">
+    <div class="meteo-mini"><b>POSIZIONE</b><span>~29.0°N 124.7°E · Mar Cinese Orientale</span></div>
+    <div class="meteo-mini"><b>MOVIMENTO</b><span>Nord-est · ~17–20 km/h</span></div>
+    <div class="meteo-mini"><b>INTENSITÀ</b><span>Tempesta tropicale · ~95–102 km/h</span></div>
+    <div class="meteo-mini"><b>TREND</b><span>Indebolimento + transizione extratropicale</span></div>
+  </div>
+  <div class="meteo-map">
+    <iframe
+      src="https://embed.windy.com/embed2.html?lat=30.2&lon=128.2&zoom=4&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1"
+      title="Mappa meteo live - area Tropical Storm Champi"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <div class="meteo-fallback">
+      <a target="_blank" rel="noopener" href="https://zoom.earth/storms/champi-2026/">Champi su Zoom Earth ↗</a>
+      <a target="_blank" rel="noopener" href="https://www.jma.go.jp/bosai/map.html#contents=typhoon">JMA Typhoon ↗</a>
+    </div>
+  </div>
+  <div class="meteo-note"><b style="color:#dce8f2">Mappa visibile: vento live nell’area di Champi.</b> Zoom Earth resta il tracker specifico del sistema. Al 25 ottobre Champi è una tempesta tropicale nel Mar Cinese Orientale, in movimento verso nord-est e prevista in indebolimento. Per decisioni operative fare riferimento a JMA e alla compagnia aerea.</div>
+</section>
+
+
 
 <div class="daynav-wrap">
   <nav class="daynav">
@@ -486,7 +604,7 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 10px}
   </div>
 </section>
 
-<div class="footer">GIAPPONE 2026 · Travel Bible · V3 · build 2026-10-25A</div>
+<div class="footer">GIAPPONE 2026 · Travel Bible · V4 · build 2026-10-25</div>
 </div>
 
 <script>
@@ -523,5 +641,89 @@ document.querySelectorAll('.daynav a').forEach(a=>a.addEventListener('click',()=
   const t=document.querySelector(a.getAttribute('href')); if(t&&t.tagName==='DETAILS') t.open=true;
 }));
 </script>
+
+<script>
+(function(){
+  const target=new Date('2026-11-04T18:15:00+01:00').getTime();
+  const ids={d:document.getElementById('cdDays'),h:document.getElementById('cdHours'),m:document.getElementById('cdMinutes'),s:document.getElementById('cdSeconds')};
+  function tick(){
+    let diff=target-Date.now();
+    if(diff<=0){
+      ids.d.textContent='00';ids.h.textContent='00';ids.m.textContent='00';ids.s.textContent='00';
+      const label=document.querySelector('.countdown-label');
+      if(label) label.textContent='ORA DI ESSERE A BARI AIRPORT';
+      return;
+    }
+    const day=86400000,hour=3600000,min=60000;
+    const d=Math.floor(diff/day);diff%=day;
+    const h=Math.floor(diff/hour);diff%=hour;
+    const m=Math.floor(diff/min);const s=Math.floor((diff%min)/1000);
+    ids.d.textContent=String(d).padStart(2,'0');
+    ids.h.textContent=String(h).padStart(2,'0');
+    ids.m.textContent=String(m).padStart(2,'0');
+    ids.s.textContent=String(s).padStart(2,'0');
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+
+
+<script>
+(function(){
+  const places={
+    tokyo:{lat:35.6762,lon:139.6503},
+    osaka:{lat:34.6937,lon:135.5023},
+    kyoto:{lat:35.0116,lon:135.7681},
+    miyajima:{lat:34.2950,lon:132.3190}
+  };
+  function wx(code,isDay){
+    if(code===0)return [isDay?'☀️':'🌙','Sereno'];
+    if(code===1)return [isDay?'🌤️':'🌙','Quasi sereno'];
+    if(code===2)return ['⛅️','Parzialmente nuvoloso'];
+    if(code===3)return ['☁️','Coperto'];
+    if(code===45||code===48)return ['🌫️','Nebbia'];
+    if(code===51||code===53||code===55)return ['🌦️','Pioviggine'];
+    if(code===56||code===57)return ['🌧️','Pioviggine gelata'];
+    if(code===61||code===63||code===65)return ['🌧️','Pioggia'];
+    if(code===66||code===67)return ['🌧️','Pioggia gelata'];
+    if(code===71||code===73||code===75||code===77)return ['🌨️','Neve'];
+    if(code===80||code===81||code===82)return ['🌦️','Rovesci'];
+    if(code===85||code===86)return ['🌨️','Rovesci di neve'];
+    if(code===95)return ['⛈️','Temporale'];
+    if(code===96||code===99)return ['⛈️','Temporale con grandine'];
+    return ['🌡️','Meteo'];
+  }
+  async function loadWeather(key,p){
+    const el=document.querySelector('[data-weather="'+key+'"]');
+    if(!el)return;
+    try{
+      const url='https://api.open-meteo.com/v1/forecast?latitude='+p.lat+'&longitude='+p.lon+'&current=temperature_2m,weather_code,is_day&timezone=auto';
+      const r=await fetch(url,{cache:'no-store'});
+      if(!r.ok)throw new Error('weather');
+      const j=await r.json();
+      const cur=j.current||{};
+      const info=wx(Number(cur.weather_code),Number(cur.is_day)===1);
+      el.querySelector('.weather-icon').textContent=info[0];
+      el.querySelector('.weather-temp').textContent=Math.round(Number(cur.temperature_2m))+'°';
+      el.querySelector('.weather-desc').textContent=info[1];
+      el.classList.remove('loading');
+      return cur.time;
+    }catch(e){
+      el.querySelector('.weather-icon').textContent='—';
+      el.querySelector('.weather-temp').textContent='--°';
+      el.querySelector('.weather-desc').textContent='Dati non disponibili';
+    }
+  }
+  Promise.all(Object.entries(places).map(([k,p])=>loadWeather(k,p))).then(function(times){
+    const ok=times.find(Boolean);
+    const lab=document.getElementById('weatherUpdated');
+    if(ok&&lab){
+      const d=new Date(ok);
+      if(!isNaN(d))lab.textContent='agg. '+d.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
