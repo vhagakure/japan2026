@@ -177,6 +177,34 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
   </div>
 </header>
 
+<section class="city-weather" id="city-weather">
+  <div class="city-weather-head">
+    <div>
+      <div class="kicker">LIVE WEATHER</div>
+      <div style="margin-top:3px;font-size:16px;font-weight:900;color:#fff">Meteo attuale</div><small>Tokyo · Osaka · Kyoto · Miyajima</small>
+    </div>
+    <small id="weatherUpdated">aggiornamento live</small>
+  </div>
+  <div class="city-weather-grid">
+    <div class="weather-box loading" data-weather="tokyo">
+      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
+      <div class="weather-city">TOKYO</div><div class="weather-desc">Caricamento…</div>
+    </div>
+    <div class="weather-box loading" data-weather="osaka">
+      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
+      <div class="weather-city">OSAKA</div><div class="weather-desc">Caricamento…</div>
+    </div>
+    <div class="weather-box loading" data-weather="kyoto">
+      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
+      <div class="weather-city">KYOTO</div><div class="weather-desc">Caricamento…</div>
+    </div>
+    <div class="weather-box loading" data-weather="miyajima">
+      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
+      <div class="weather-city">MIYAJIMA</div><div class="weather-desc">Caricamento…</div>
+    </div>
+  </div>
+</section>
+
 <section class="meteo-live" id="meteo-live">
   <div class="meteo-head">
     <div>
@@ -207,33 +235,7 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
   <div class="meteo-note"><b style="color:#dce8f2">Mappa visibile: vento live nell’area di Champi.</b> Zoom Earth resta il tracker specifico del sistema. Al 25 ottobre Champi è una tempesta tropicale nel Mar Cinese Orientale, in movimento verso nord-est e prevista in indebolimento. Per decisioni operative fare riferimento a JMA e alla compagnia aerea.</div>
 </section>
 
-<section class="city-weather" id="city-weather">
-  <div class="city-weather-head">
-    <div>
-      <div class="kicker">METEO ORA</div>
-      <small>Situazione attuale nelle quattro tappe</small>
-    </div>
-    <small id="weatherUpdated">aggiornamento live</small>
-  </div>
-  <div class="city-weather-grid">
-    <div class="weather-box loading" data-weather="tokyo">
-      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
-      <div class="weather-city">TOKYO</div><div class="weather-desc">Caricamento…</div>
-    </div>
-    <div class="weather-box loading" data-weather="osaka">
-      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
-      <div class="weather-city">OSAKA</div><div class="weather-desc">Caricamento…</div>
-    </div>
-    <div class="weather-box loading" data-weather="kyoto">
-      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
-      <div class="weather-city">KYOTO</div><div class="weather-desc">Caricamento…</div>
-    </div>
-    <div class="weather-box loading" data-weather="miyajima">
-      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
-      <div class="weather-city">MIYAJIMA</div><div class="weather-desc">Caricamento…</div>
-    </div>
-  </div>
-</section>
+
 
 <div class="daynav-wrap">
   <nav class="daynav">
