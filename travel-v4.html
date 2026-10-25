@@ -35,6 +35,21 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
 .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
 .hero-actions a{display:flex;align-items:center;justify-content:center;min-height:40px;border:1px solid rgba(255,255,255,.12);border-radius:11px;background:rgba(15,21,28,.78);text-decoration:none;font-size:11px;font-weight:850}
 .hero-actions a:first-child{background:var(--gold);border-color:var(--gold);color:#111}
+.meteo-live{margin-top:12px;border:1px solid rgba(143,212,255,.28);border-radius:18px;background:linear-gradient(145deg,#101821,#0b1016);overflow:hidden}
+.meteo-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:13px 14px 10px}
+.meteo-kicker{font-size:9px;font-weight:950;letter-spacing:.14em;color:var(--blue)}
+.meteo-title{margin:3px 0 3px;font-size:18px;line-height:1.15}
+.meteo-sub{margin:0;color:#c8d3dd;font-size:11px;line-height:1.4}
+.meteo-badge{flex:0 0 auto;padding:5px 8px;border-radius:999px;border:1px solid rgba(255,196,91,.35);background:rgba(255,196,91,.08);color:#ffd17c;font-size:8px;font-weight:900;letter-spacing:.08em}
+.meteo-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:0 14px 11px}
+.meteo-mini{padding:9px 10px;border:1px solid rgba(255,255,255,.07);border-radius:11px;background:#0d131a}
+.meteo-mini b{display:block;font-size:11px}.meteo-mini span{display:block;margin-top:2px;color:var(--muted);font-size:9px;line-height:1.35}
+.meteo-map{position:relative;height:270px;border-top:1px solid rgba(255,255,255,.07);background:#090d12}
+.meteo-map iframe{width:100%;height:100%;border:0;display:block;background:#090d12}
+.meteo-fallback{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:7px;pointer-events:none}
+.meteo-fallback a{pointer-events:auto;flex:1;display:flex;align-items:center;justify-content:center;min-height:38px;padding:7px 8px;border-radius:10px;background:rgba(8,12,17,.88);border:1px solid rgba(255,255,255,.15);color:#fff;text-decoration:none;font-size:10px;font-weight:850;backdrop-filter:blur(8px)}
+.meteo-note{padding:10px 14px 13px;color:var(--muted);font-size:9px;line-height:1.45}
+@media(min-width:760px){.meteo-map{height:390px}.meteo-grid{grid-template-columns:repeat(4,1fr)}}
 .daynav-wrap{position:sticky;top:0;z-index:20;margin:10px -12px 0;padding:8px 12px;background:rgba(10,12,16,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.05)}
 .daynav{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}.daynav::-webkit-scrollbar{display:none}
 .daynav a{flex:0 0 auto;text-decoration:none;border:1px solid var(--line);background:#11161c;border-radius:999px;padding:9px 11px;font-size:12px;white-space:nowrap}
@@ -147,6 +162,37 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
     <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bari+Karol+Wojtyla+Airport">Aeroporto BRI ↗</a>
   </div>
 </header>
+
+<section class="meteo-live" id="meteo-live">
+  <div class="meteo-head">
+    <div>
+      <div class="meteo-kicker">LIVE METEO NEWS</div>
+      <h2 class="meteo-title">Champi · Typhoon 30</h2>
+      <p class="meteo-sub">Monitoraggio meteo Giappone · aggiornamento operativo del 25 ottobre 2026.</p>
+    </div>
+    <span class="meteo-badge">MONITORAGGIO</span>
+  </div>
+  <div class="meteo-grid">
+    <div class="meteo-mini"><b>AREA ATTUALE</b><span>Mar Cinese Orientale</span></div>
+    <div class="meteo-mini"><b>DIREZIONE</b><span>Nord-est verso il Giappone occidentale</span></div>
+    <div class="meteo-mini"><b>TREND</b><span>In indebolimento / transizione extratropicale</span></div>
+    <div class="meteo-mini"><b>VIAGGIO 4 NOV</b><span>Nessun impatto diretto confermato al momento</span></div>
+  </div>
+  <div class="meteo-map">
+    <iframe
+      src="https://zoom.earth/storms/champi-2026/"
+      title="Zoom Earth - Champi 2026 live tracker"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allow="geolocation"
+    ></iframe>
+    <div class="meteo-fallback">
+      <a target="_blank" rel="noopener" href="https://zoom.earth/storms/champi-2026/">Apri mappa live ↗</a>
+      <a target="_blank" rel="noopener" href="https://www.jma.go.jp/bosai/map.html#contents=typhoon">JMA Typhoon ↗</a>
+    </div>
+  </div>
+  <div class="meteo-note">La mappa è fornita da Zoom Earth e si aggiorna sul loro sito. La situazione può cambiare rapidamente: per decisioni operative fare sempre riferimento agli avvisi ufficiali JMA e alle comunicazioni della compagnia aerea.</div>
+</section>
 
 <div class="daynav-wrap">
   <nav class="daynav">
