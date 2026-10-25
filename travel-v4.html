@@ -49,6 +49,20 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
 .meteo-fallback{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:7px;pointer-events:none}
 .meteo-fallback a{pointer-events:auto;flex:1;display:flex;align-items:center;justify-content:center;min-height:38px;padding:7px 8px;border-radius:10px;background:rgba(8,12,17,.88);border:1px solid rgba(255,255,255,.15);color:#fff;text-decoration:none;font-size:10px;font-weight:850;backdrop-filter:blur(8px)}
 .meteo-note{padding:10px 14px 13px;color:var(--muted);font-size:9px;line-height:1.45}
+.city-weather{margin-top:12px}
+.city-weather-head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:0 2px 8px}
+.city-weather-head .kicker{color:var(--blue)}
+.city-weather-head small{color:var(--muted);font-size:9px}
+.city-weather-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.weather-box{position:relative;min-height:104px;padding:11px 12px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#121922,#0d1218);overflow:hidden}
+.weather-box:after{content:"LIVE";position:absolute;right:8px;top:8px;padding:3px 5px;border-radius:999px;background:rgba(112,214,176,.08);border:1px solid rgba(112,214,176,.25);color:var(--green);font-size:7px;font-weight:900;letter-spacing:.08em}
+.weather-main{display:flex;align-items:center;gap:8px;margin-top:3px}
+.weather-icon{font-size:28px;line-height:1}
+.weather-temp{font-size:27px;line-height:1;font-weight:900;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.weather-city{margin-top:9px;font-size:11px;font-weight:900;letter-spacing:.04em}
+.weather-desc{margin-top:2px;color:var(--muted);font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.weather-box.loading .weather-temp,.weather-box.loading .weather-desc{opacity:.55}
+@media(min-width:760px){.city-weather-grid{grid-template-columns:repeat(4,1fr)}.weather-box{min-height:112px}}
 @media(min-width:760px){.meteo-map{height:330px}.meteo-grid{grid-template-columns:repeat(4,1fr)}}
 .daynav-wrap{position:sticky;top:0;z-index:20;margin:10px -12px 0;padding:8px 12px;background:rgba(10,12,16,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.05)}
 .daynav{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}.daynav::-webkit-scrollbar{display:none}
@@ -191,6 +205,34 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
     </div>
   </div>
   <div class="meteo-note"><b style="color:#dce8f2">Mappa visibile: vento live nell’area di Champi.</b> Zoom Earth resta il tracker specifico del sistema. Al 25 ottobre Champi è una tempesta tropicale nel Mar Cinese Orientale, in movimento verso nord-est e prevista in indebolimento. Per decisioni operative fare riferimento a JMA e alla compagnia aerea.</div>
+</section>
+
+<section class="city-weather" id="city-weather">
+  <div class="city-weather-head">
+    <div>
+      <div class="kicker">METEO ORA</div>
+      <small>Situazione attuale nelle quattro tappe</small>
+    </div>
+    <small id="weatherUpdated">aggiornamento live</small>
+  </div>
+  <div class="city-weather-grid">
+    <div class="weather-box loading" data-weather="tokyo">
+      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
+      <div class="weather-city">TOKYO</div><div class="weather-desc">Caricamento…</div>
+    </div>
+    <div class="weather-box loading" data-weather="osaka">
+      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
+      <div class="weather-city">OSAKA</div><div class="weather-desc">Caricamento…</div>
+    </div>
+    <div class="weather-box loading" data-weather="kyoto">
+      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
+      <div class="weather-city">KYOTO</div><div class="weather-desc">Caricamento…</div>
+    </div>
+    <div class="weather-box loading" data-weather="miyajima">
+      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
+      <div class="weather-city">MIYAJIMA</div><div class="weather-desc">Caricamento…</div>
+    </div>
+  </div>
 </section>
 
 <div class="daynav-wrap">
@@ -620,6 +662,64 @@ document.querySelectorAll('.daynav a').forEach(a=>a.addEventListener('click',()=
     ids.s.textContent=String(s).padStart(2,'0');
   }
   tick();setInterval(tick,1000);
+})();
+</script>
+
+
+<script>
+(function(){
+  const places={
+    tokyo:{lat:35.6762,lon:139.6503},
+    osaka:{lat:34.6937,lon:135.5023},
+    kyoto:{lat:35.0116,lon:135.7681},
+    miyajima:{lat:34.2950,lon:132.3190}
+  };
+  function wx(code,isDay){
+    if(code===0)return [isDay?'☀️':'🌙','Sereno'];
+    if(code===1)return [isDay?'🌤️':'🌙','Quasi sereno'];
+    if(code===2)return ['⛅️','Parzialmente nuvoloso'];
+    if(code===3)return ['☁️','Coperto'];
+    if(code===45||code===48)return ['🌫️','Nebbia'];
+    if(code===51||code===53||code===55)return ['🌦️','Pioviggine'];
+    if(code===56||code===57)return ['🌧️','Pioviggine gelata'];
+    if(code===61||code===63||code===65)return ['🌧️','Pioggia'];
+    if(code===66||code===67)return ['🌧️','Pioggia gelata'];
+    if(code===71||code===73||code===75||code===77)return ['🌨️','Neve'];
+    if(code===80||code===81||code===82)return ['🌦️','Rovesci'];
+    if(code===85||code===86)return ['🌨️','Rovesci di neve'];
+    if(code===95)return ['⛈️','Temporale'];
+    if(code===96||code===99)return ['⛈️','Temporale con grandine'];
+    return ['🌡️','Meteo'];
+  }
+  async function loadWeather(key,p){
+    const el=document.querySelector('[data-weather="'+key+'"]');
+    if(!el)return;
+    try{
+      const url='https://api.open-meteo.com/v1/forecast?latitude='+p.lat+'&longitude='+p.lon+'&current=temperature_2m,weather_code,is_day&timezone=auto';
+      const r=await fetch(url,{cache:'no-store'});
+      if(!r.ok)throw new Error('weather');
+      const j=await r.json();
+      const cur=j.current||{};
+      const info=wx(Number(cur.weather_code),Number(cur.is_day)===1);
+      el.querySelector('.weather-icon').textContent=info[0];
+      el.querySelector('.weather-temp').textContent=Math.round(Number(cur.temperature_2m))+'°';
+      el.querySelector('.weather-desc').textContent=info[1];
+      el.classList.remove('loading');
+      return cur.time;
+    }catch(e){
+      el.querySelector('.weather-icon').textContent='—';
+      el.querySelector('.weather-temp').textContent='--°';
+      el.querySelector('.weather-desc').textContent='Dati non disponibili';
+    }
+  }
+  Promise.all(Object.entries(places).map(([k,p])=>loadWeather(k,p))).then(function(times){
+    const ok=times.find(Boolean);
+    const lab=document.getElementById('weatherUpdated');
+    if(ok&&lab){
+      const d=new Date(ok);
+      if(!isNaN(d))lab.textContent='agg. '+d.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+    }
+  });
 })();
 </script>
 
