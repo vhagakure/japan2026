@@ -63,6 +63,19 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
 .weather-desc{margin-top:2px;color:var(--muted);font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .weather-box.loading .weather-temp,.weather-box.loading .weather-desc{opacity:.55}
 @media(min-width:760px){.city-weather-grid{grid-template-columns:repeat(4,1fr)}.weather-box{min-height:112px}}
+.meteo-news{margin-top:12px;padding:13px 14px;border:1px solid rgba(143,212,255,.22);border-radius:18px;background:linear-gradient(145deg,#101821,#0c1117)}
+.meteo-news-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.meteo-news-head h2{margin:3px 0 0;font-size:18px;line-height:1.15}
+.jma-badge{flex:0 0 auto;padding:5px 7px;border-radius:999px;border:1px solid rgba(143,212,255,.32);background:rgba(143,212,255,.07);color:var(--blue);font-size:8px;font-weight:900;letter-spacing:.08em}
+.news-list{display:grid;gap:8px;margin-top:10px}
+.news-card{padding:10px 11px;border:1px solid rgba(255,255,255,.07);border-radius:12px;background:#0d141b}
+.news-meta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:8px;font-weight:800;letter-spacing:.05em}
+.news-card h3{margin:5px 0 4px;font-size:13px;line-height:1.25}
+.news-card p{margin:0;color:#cbd4dd;font-size:10px;line-height:1.45}
+.news-actions{display:flex;gap:7px;margin-top:8px}
+.news-actions a{display:flex;align-items:center;justify-content:center;min-height:34px;padding:6px 9px;border:1px solid rgba(255,255,255,.12);border-radius:9px;background:#141c24;color:#fff;text-decoration:none;font-size:9px;font-weight:850}
+.news-empty{padding:10px 11px;border:1px solid rgba(112,214,176,.18);border-radius:12px;background:rgba(112,214,176,.04);color:#d8eee6;font-size:10px;line-height:1.4}
+
 @media(min-width:760px){.meteo-map{height:330px}.meteo-grid{grid-template-columns:repeat(4,1fr)}}
 .daynav-wrap{position:sticky;top:0;z-index:20;margin:10px -12px 0;padding:8px 12px;background:rgba(10,12,16,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.05)}
 .daynav{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}.daynav::-webkit-scrollbar{display:none}
@@ -181,15 +194,11 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
   <div class="city-weather-head">
     <div>
       <div class="kicker">LIVE WEATHER</div>
-      <div style="margin-top:3px;font-size:16px;font-weight:900;color:#fff">Meteo attuale</div><small>Tokyo · Osaka · Kyoto · Miyajima</small>
+      <div style="margin-top:3px;font-size:16px;font-weight:900;color:#fff">Meteo attuale</div><small>Osaka · Kyoto · Miyajima · Tokyo</small>
     </div>
     <small id="weatherUpdated">aggiornamento live</small>
   </div>
   <div class="city-weather-grid">
-    <div class="weather-box loading" data-weather="tokyo">
-      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
-      <div class="weather-city">TOKYO</div><div class="weather-desc">Caricamento…</div>
-    </div>
     <div class="weather-box loading" data-weather="osaka">
       <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
       <div class="weather-city">OSAKA</div><div class="weather-desc">Caricamento…</div>
@@ -202,6 +211,33 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
       <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
       <div class="weather-city">MIYAJIMA</div><div class="weather-desc">Caricamento…</div>
     </div>
+    <div class="weather-box loading" data-weather="tokyo">
+      <div class="weather-main"><span class="weather-icon">•</span><span class="weather-temp">--°</span></div>
+      <div class="weather-city">TOKYO</div><div class="weather-desc">Caricamento…</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="meteo-news" id="meteo-news">
+  <div class="meteo-news-head">
+    <div>
+      <div class="kicker">METEO NEWS</div>
+      <h2>JMA · aggiornamenti rilevanti per il viaggio</h2>
+    </div>
+    <span class="jma-badge">FONTE UFFICIALE</span>
+  </div>
+  <div class="news-list">
+    <article class="news-card">
+      <div class="news-meta"><span>26 OTT 2026</span><span>MONITORAGGIO</span></div>
+      <h3>Champi / sistema tropicale: da seguire, nessun impatto sulle nostre date confermato</h3>
+      <p>JMA continua a pubblicare il tracciamento ufficiale del sistema tropicale. Il sistema è in evoluzione e può continuare a produrre pioggia, vento e mare mosso anche durante o dopo la transizione extratropicale. Al momento non c’è una criticità ufficiale confermata per il nostro itinerario del 4–15 novembre.</p>
+      <div class="news-actions">
+        <a target="_blank" rel="noopener" href="https://www.jma.go.jp/bosai/map.html?contents=typhoon">JMA · Tifoni ↗</a>
+        <a target="_blank" rel="noopener" href="https://www.jma.go.jp/bosai/map.html?area_type=japan">JMA · Allerte ↗</a>
+      </div>
+    </article>
+    <div class="news-empty"><b>Nessun’altra notizia meteo ufficiale rilevante per le nostre date al momento.</b><br>Le condizioni locali di oggi a Osaka, Kyoto, Hiroshima/Miyajima o Tokyo non vengono mostrate qui se non hanno un possibile impatto sul viaggio.</div>
   </div>
 </section>
 
@@ -671,10 +707,10 @@ document.querySelectorAll('.daynav a').forEach(a=>a.addEventListener('click',()=
 <script>
 (function(){
   const places={
-    tokyo:{lat:35.6762,lon:139.6503},
     osaka:{lat:34.6937,lon:135.5023},
     kyoto:{lat:35.0116,lon:135.7681},
-    miyajima:{lat:34.2950,lon:132.3190}
+    miyajima:{lat:34.2959,lon:132.3198,fallback:{lat:34.3853,lon:132.4553}},
+    tokyo:{lat:35.6762,lon:139.6503}
   };
   function wx(code,isDay){
     if(code===0)return [isDay?'☀️':'🌙','Sereno'];
@@ -696,11 +732,19 @@ document.querySelectorAll('.daynav a').forEach(a=>a.addEventListener('click',()=
   async function loadWeather(key,p){
     const el=document.querySelector('[data-weather="'+key+'"]');
     if(!el)return;
-    try{
-      const url='https://api.open-meteo.com/v1/forecast?latitude='+p.lat+'&longitude='+p.lon+'&current=temperature_2m,weather_code,is_day&timezone=auto';
+    async function get(lat,lon){
+      const url='https://api.open-meteo.com/v1/forecast?latitude='+lat+'&longitude='+lon+'&current=temperature_2m,weather_code,is_day&timezone=auto';
       const r=await fetch(url,{cache:'no-store'});
       if(!r.ok)throw new Error('weather');
-      const j=await r.json();
+      return await r.json();
+    }
+    try{
+      let j;
+      try{ j=await get(p.lat,p.lon); }
+      catch(primaryErr){
+        if(!p.fallback)throw primaryErr;
+        j=await get(p.fallback.lat,p.fallback.lon);
+      }
       const cur=j.current||{};
       const info=wx(Number(cur.weather_code),Number(cur.is_day)===1);
       el.querySelector('.weather-icon').textContent=info[0];
