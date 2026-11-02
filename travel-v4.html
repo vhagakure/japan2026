@@ -112,6 +112,34 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
   .step{display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px}
   .time{margin:0}
 }
+
+.city-weather{margin-top:12px}
+.city-weather-head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:0 2px 8px}
+.city-weather-head .kicker{color:var(--blue)}
+.city-weather-head small{color:var(--muted);font-size:9px}
+.city-weather-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.weather-box{position:relative;min-height:104px;padding:11px 12px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#121922,#0d1218);overflow:hidden}
+.weather-box:after{content:"LIVE";position:absolute;right:8px;top:8px;padding:3px 5px;border-radius:999px;background:rgba(112,214,176,.08);border:1px solid rgba(112,214,176,.25);color:var(--green);font-size:7px;font-weight:900;letter-spacing:.08em}
+.weather-main{display:flex;align-items:center;gap:8px;margin-top:3px}
+.weather-icon{font-size:28px;line-height:1}
+.weather-temp{font-size:27px;line-height:1;font-weight:900;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.weather-city{margin-top:9px;font-size:11px;font-weight:900;letter-spacing:.04em}
+.weather-desc{margin-top:2px;color:var(--muted);font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.weather-box.loading .weather-temp,.weather-box.loading .weather-desc{opacity:.55}
+@media(min-width:760px){.city-weather-grid{grid-template-columns:repeat(4,1fr)}.weather-box{min-height:112px}}
+.meteo-news{margin-top:12px;padding:13px 14px;border:1px solid rgba(143,212,255,.22);border-radius:18px;background:linear-gradient(145deg,#101821,#0c1117)}
+.meteo-news-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.meteo-news-head h2{margin:3px 0 0;font-size:18px;line-height:1.15}
+.jma-badge{flex:0 0 auto;padding:5px 7px;border-radius:999px;border:1px solid rgba(143,212,255,.32);background:rgba(143,212,255,.07);color:var(--blue);font-size:8px;font-weight:900;letter-spacing:.08em}
+.news-list{display:grid;gap:8px;margin-top:10px}
+.news-card{padding:10px 11px;border:1px solid rgba(255,255,255,.07);border-radius:12px;background:#0d141b}
+.news-meta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:8px;font-weight:800;letter-spacing:.05em}
+.news-card h3{margin:5px 0 4px;font-size:13px;line-height:1.25}
+.news-card p{margin:0;color:#cbd4dd;font-size:10px;line-height:1.45}
+.news-actions{display:flex;gap:7px;margin-top:8px}
+.news-actions a{display:flex;align-items:center;justify-content:center;min-height:34px;padding:6px 9px;border:1px solid rgba(255,255,255,.12);border-radius:9px;background:#141c24;color:#fff;text-decoration:none;font-size:9px;font-weight:850}
+.news-empty{padding:10px 11px;border:1px solid rgba(112,214,176,.18);border-radius:12px;background:rgba(112,214,176,.04);color:#d8eee6;font-size:10px;line-height:1.4}
+
 </style>
 </head>
 <body>
