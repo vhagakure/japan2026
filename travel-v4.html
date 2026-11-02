@@ -35,48 +35,7 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
 .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
 .hero-actions a{display:flex;align-items:center;justify-content:center;min-height:40px;border:1px solid rgba(255,255,255,.12);border-radius:11px;background:rgba(15,21,28,.78);text-decoration:none;font-size:11px;font-weight:850}
 .hero-actions a:first-child{background:var(--gold);border-color:var(--gold);color:#111}
-.meteo-live{margin-top:12px;border:1px solid rgba(143,212,255,.28);border-radius:18px;background:linear-gradient(145deg,#101821,#0b1016);overflow:hidden}
-.meteo-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:13px 14px 10px}
-.meteo-kicker{font-size:9px;font-weight:950;letter-spacing:.14em;color:var(--blue)}
-.meteo-title{margin:3px 0 3px;font-size:18px;line-height:1.15}
-.meteo-sub{margin:0;color:#c8d3dd;font-size:11px;line-height:1.4}
-.meteo-badge{flex:0 0 auto;padding:5px 8px;border-radius:999px;border:1px solid rgba(255,196,91,.35);background:rgba(255,196,91,.08);color:#ffd17c;font-size:8px;font-weight:900;letter-spacing:.08em}
-.meteo-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:0 14px 11px}
-.meteo-mini{padding:9px 10px;border:1px solid rgba(255,255,255,.07);border-radius:11px;background:#0d131a}
-.meteo-mini b{display:block;font-size:11px}.meteo-mini span{display:block;margin-top:2px;color:var(--muted);font-size:9px;line-height:1.35}
-.meteo-map{position:relative;height:235px;border-top:1px solid rgba(255,255,255,.07);background:#090d12;overflow:hidden}
-.meteo-map iframe{width:100%;height:100%;border:0;display:block;background:#090d12}
-.meteo-fallback{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:7px;pointer-events:none}
-.meteo-fallback a{pointer-events:auto;flex:1;display:flex;align-items:center;justify-content:center;min-height:38px;padding:7px 8px;border-radius:10px;background:rgba(8,12,17,.88);border:1px solid rgba(255,255,255,.15);color:#fff;text-decoration:none;font-size:10px;font-weight:850;backdrop-filter:blur(8px)}
-.meteo-note{padding:10px 14px 13px;color:var(--muted);font-size:9px;line-height:1.45}
-.city-weather{margin-top:12px}
-.city-weather-head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:0 2px 8px}
-.city-weather-head .kicker{color:var(--blue)}
-.city-weather-head small{color:var(--muted);font-size:9px}
-.city-weather-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.weather-box{position:relative;min-height:104px;padding:11px 12px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#121922,#0d1218);overflow:hidden}
-.weather-box:after{content:"LIVE";position:absolute;right:8px;top:8px;padding:3px 5px;border-radius:999px;background:rgba(112,214,176,.08);border:1px solid rgba(112,214,176,.25);color:var(--green);font-size:7px;font-weight:900;letter-spacing:.08em}
-.weather-main{display:flex;align-items:center;gap:8px;margin-top:3px}
-.weather-icon{font-size:28px;line-height:1}
-.weather-temp{font-size:27px;line-height:1;font-weight:900;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
-.weather-city{margin-top:9px;font-size:11px;font-weight:900;letter-spacing:.04em}
-.weather-desc{margin-top:2px;color:var(--muted);font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.weather-box.loading .weather-temp,.weather-box.loading .weather-desc{opacity:.55}
-@media(min-width:760px){.city-weather-grid{grid-template-columns:repeat(4,1fr)}.weather-box{min-height:112px}}
-.meteo-news{margin-top:12px;padding:13px 14px;border:1px solid rgba(143,212,255,.22);border-radius:18px;background:linear-gradient(145deg,#101821,#0c1117)}
-.meteo-news-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-.meteo-news-head h2{margin:3px 0 0;font-size:18px;line-height:1.15}
-.jma-badge{flex:0 0 auto;padding:5px 7px;border-radius:999px;border:1px solid rgba(143,212,255,.32);background:rgba(143,212,255,.07);color:var(--blue);font-size:8px;font-weight:900;letter-spacing:.08em}
-.news-list{display:grid;gap:8px;margin-top:10px}
-.news-card{padding:10px 11px;border:1px solid rgba(255,255,255,.07);border-radius:12px;background:#0d141b}
-.news-meta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:8px;font-weight:800;letter-spacing:.05em}
-.news-card h3{margin:5px 0 4px;font-size:13px;line-height:1.25}
-.news-card p{margin:0;color:#cbd4dd;font-size:10px;line-height:1.45}
-.news-actions{display:flex;gap:7px;margin-top:8px}
-.news-actions a{display:flex;align-items:center;justify-content:center;min-height:34px;padding:6px 9px;border:1px solid rgba(255,255,255,.12);border-radius:9px;background:#141c24;color:#fff;text-decoration:none;font-size:9px;font-weight:850}
-.news-empty{padding:10px 11px;border:1px solid rgba(112,214,176,.18);border-radius:12px;background:rgba(112,214,176,.04);color:#d8eee6;font-size:10px;line-height:1.4}
 
-@media(min-width:760px){.meteo-map{height:330px}.meteo-grid{grid-template-columns:repeat(4,1fr)}}
 .daynav-wrap{position:sticky;top:0;z-index:20;margin:10px -12px 0;padding:8px 12px;background:rgba(10,12,16,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.05)}
 .daynav{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}.daynav::-webkit-scrollbar{display:none}
 .daynav a{flex:0 0 auto;text-decoration:none;border:1px solid var(--line);background:#11161c;border-radius:999px;padding:9px 11px;font-size:12px;white-space:nowrap}
@@ -241,35 +200,7 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
   </div>
 </section>
 
-<section class="meteo-live" id="meteo-live">
-  <div class="meteo-head">
-    <div>
-      <div class="meteo-kicker">LIVE METEO NEWS</div>
-      <h2 class="meteo-title">Champi · Typhoon 30</h2>
-      <p class="meteo-sub">Monitoraggio meteo Giappone · aggiornamento operativo del 25 ottobre 2026.</p>
-    </div>
-    <span class="meteo-badge">MONITORAGGIO</span>
-  </div>
-  <div class="meteo-grid">
-    <div class="meteo-mini"><b>POSIZIONE</b><span>~29.0°N 124.7°E · Mar Cinese Orientale</span></div>
-    <div class="meteo-mini"><b>MOVIMENTO</b><span>Nord-est · ~17–20 km/h</span></div>
-    <div class="meteo-mini"><b>INTENSITÀ</b><span>Tempesta tropicale · ~95–102 km/h</span></div>
-    <div class="meteo-mini"><b>TREND</b><span>Indebolimento + transizione extratropicale</span></div>
-  </div>
-  <div class="meteo-map">
-    <iframe
-      src="https://embed.windy.com/embed2.html?lat=30.2&lon=128.2&zoom=4&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1"
-      title="Mappa meteo live - area Tropical Storm Champi"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
-    <div class="meteo-fallback">
-      <a target="_blank" rel="noopener" href="https://zoom.earth/storms/champi-2026/">Champi su Zoom Earth ↗</a>
-      <a target="_blank" rel="noopener" href="https://www.jma.go.jp/bosai/map.html#contents=typhoon">JMA Typhoon ↗</a>
-    </div>
-  </div>
-  <div class="meteo-note"><b style="color:#dce8f2">Mappa visibile: vento live nell’area di Champi.</b> Zoom Earth resta il tracker specifico del sistema. Al 25 ottobre Champi è una tempesta tropicale nel Mar Cinese Orientale, in movimento verso nord-est e prevista in indebolimento. Per decisioni operative fare riferimento a JMA e alla compagnia aerea.</div>
-</section>
+
 
 
 
@@ -326,11 +257,12 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
   </div>
 
   <details class="day" id="d05" data-date="2026-11-05">
-    <summary><div class="day-date">05 NOV · ARRIVO</div><div class="day-title">KIX → hotel → Tenma</div><div class="day-sub">Arrivare bene, mangiare bene, niente turismo forzato.</div></summary>
+    <summary><div class="day-date">05 NOV · ARRIVO</div><div class="day-title">KIX → hotel → prima uscita Osaka</div><div class="day-sub">Arrivo, bagagli in hotel e prima destinazione della serata.</div></summary>
     <div class="steps">
       <div class="step"><div class="time">19:10</div><div><h4>Atterraggio KIX</h4><p>Immigrazione, bagagli, Visit Japan Web già pronto.</p></div></div>
       <div class="step"><div class="time">20:30–21:00</div><div><h4>KIX → Minamimorimachi</h4><div class="transfer"><b>🚆 Treno + metro · ~60–75 min</b><small><span class="line">Nankai</span> KIX → Tengachaya → <span class="line">Sakaisuji Line</span> → Minamimorimachi. Rapi:t solo se parte entro ~10–15 min, altrimenti Airport Express.</small></div><a class="map" target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Kansai+International+Airport&destination=Premier+Hotel+CABIN+PRESIDENT+Osaka">Apri transfer in Maps →</a></div></div>
-      <div class="step night"><div class="time">21:45</div><div><h4>Check-in + Tenma</h4><p>Cena spontanea: izakaya, yakitori, ramen o okonomiyaki.</p><div class="transfer"><b>🚶 Hotel → Tenma · 10–15 min</b></div></div></div>
+      <div class="step"><div class="time">~21:45</div><div><h4>Hotel · check-in + deposito bagagli</h4><p>Premier Hotel CABIN PRESIDENT Osaka. Lasciare i bagagli, sistemazione rapida e uscire senza perdere tempo.</p></div></div>
+      <div class="step night"><div class="time">~22:00</div><div><h4>Prima destinazione della serata</h4><p>Prima tappa subito dopo aver lasciato i bagagli in hotel.</p><a class="map" target="_blank" rel="noopener" href="https://maps.app.goo.gl/T3qJqvkKRk1XE9FVA">Apri destinazione / indicazioni in Maps →</a></div></div>
     </div>
   </details>
 
