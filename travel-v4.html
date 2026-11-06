@@ -140,6 +140,18 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
 .news-actions a{display:flex;align-items:center;justify-content:center;min-height:34px;padding:6px 9px;border:1px solid rgba(255,255,255,.12);border-radius:9px;background:#141c24;color:#fff;text-decoration:none;font-size:9px;font-weight:850}
 .news-empty{padding:10px 11px;border:1px solid rgba(112,214,176,.18);border-radius:12px;background:rgba(112,214,176,.04);color:#d8eee6;font-size:10px;line-height:1.4}
 
+
+.fx-card{margin-top:12px;padding:13px 14px;border:1px solid rgba(243,198,106,.22);border-radius:18px;background:linear-gradient(145deg,#17130d,#0f1115)}
+.fx-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.fx-head h2{margin:3px 0 0;font-size:18px;line-height:1.15}
+.fx-rate{flex:0 0 auto;padding:5px 8px;border-radius:999px;border:1px solid rgba(243,198,106,.35);background:rgba(243,198,106,.07);color:var(--gold);font-size:9px;font-weight:900}
+.fx-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fx-field{padding:10px 11px;border:1px solid rgba(255,255,255,.08);border-radius:13px;background:#0d1319}
+.fx-field label{display:block;margin-bottom:6px;color:var(--muted);font-size:9px;font-weight:850;letter-spacing:.06em}
+.fx-field input{width:100%;box-sizing:border-box;border:0;outline:0;background:transparent;color:#fff;font-size:24px;font-weight:900;letter-spacing:-.03em}
+.fx-note{margin-top:8px;color:var(--muted);font-size:9px}
+@media(max-width:420px){.fx-grid{grid-template-columns:1fr 1fr}.fx-field input{font-size:21px}}
+
 </style>
 </head>
 <body>
@@ -176,6 +188,28 @@ h1{font-size:42px;line-height:.9;letter-spacing:-.04em;margin:8px 0 8px}
     <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bari+Karol+Wojtyla+Airport">Aeroporto BRI ↗</a>
   </div>
 </header>
+
+<section class="fx-card" id="currency">
+  <div class="fx-head">
+    <div>
+      <div class="kicker">CAMBIO RAPIDO</div>
+      <h2>Euro ↔ Yen</h2>
+    </div>
+    <span class="fx-rate">1 € = 166 ¥</span>
+  </div>
+  <div class="fx-grid">
+    <div class="fx-field">
+      <label for="eurInput">EURO (€)</label>
+      <input id="eurInput" type="number" inputmode="decimal" placeholder="0" step="0.01">
+    </div>
+    <div class="fx-field">
+      <label for="jpyInput">YEN (¥)</label>
+      <input id="jpyInput" type="number" inputmode="numeric" placeholder="0" step="1">
+    </div>
+  </div>
+  <div class="fx-note">Cambio operativo fisso per il viaggio · 1 € = 166 ¥</div>
+</section>
+
 
 <section class="city-weather" id="city-weather">
   <div class="city-weather-head">
@@ -725,6 +759,27 @@ document.querySelectorAll('.daynav a').forEach(a=>a.addEventListener('click',()=
       const d=new Date(ok);
       if(!isNaN(d))lab.textContent='agg. '+d.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
     }
+  });
+})();
+</script>
+
+
+<script>
+(function(){
+  const rate=166;
+  const eur=document.getElementById('eurInput');
+  const jpy=document.getElementById('jpyInput');
+  if(!eur||!jpy)return;
+  let lock=false;
+  eur.addEventListener('input',function(){
+    if(lock)return; lock=true;
+    jpy.value=this.value===''?'':Math.round(Number(this.value)*rate);
+    lock=false;
+  });
+  jpy.addEventListener('input',function(){
+    if(lock)return; lock=true;
+    eur.value=this.value===''?'':(Number(this.value)/rate).toFixed(2);
+    lock=false;
   });
 })();
 </script>
